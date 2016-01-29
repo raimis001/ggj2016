@@ -7,8 +7,10 @@ public class Mountain : MonoBehaviour
     public int Rows;
     public GameObject BlockModel;
 
+    public Cube Root { get; private set; }
+
 	// Use this for initialization
-	void Start ()
+	void Awake()
     {
         Generate();
 	}
@@ -40,13 +42,20 @@ public class Mountain : MonoBehaviour
                 currentPosition += new Vector3(-1f, 0f, 1f);
                 //assigning self as move target
                 cube = block.GetComponent<Cube>();
-                if (cubeIndex != 0)
+                if (row == 0)
                 {
-                    previousRow[cubeIndex - 1].Right = cube;
+                    Root = cube;
                 }
-                if(cubeIndex != cubesPerRow - 1)
+                else
                 {
-                    previousRow[cubeIndex].Left = cube;
+                    if (cubeIndex != 0)
+                    {
+                        previousRow[cubeIndex - 1].Right = cube;
+                    }
+                    if (cubeIndex != cubesPerRow - 1)
+                    {
+                        previousRow[cubeIndex].Left = cube;
+                    }
                 }
                 currentRow.Add(cube);
             }
