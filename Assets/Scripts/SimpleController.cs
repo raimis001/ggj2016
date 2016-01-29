@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SimpleController : MonoBehaviour
 {
@@ -17,17 +18,13 @@ public class SimpleController : MonoBehaviour
         }
         set
         {
-
-            Debug.Log("AC");
             if (_ActiveCube != null && _ActiveCube != value)
             {
-                Debug.Log("neizg");
                 _ActiveCube.Neizgaismot();
             }
             _ActiveCube = value;
             if(_ActiveCube != null)
             {
-                Debug.Log("izg");
                 _ActiveCube.Izgaismot();
             }
         }
@@ -38,7 +35,7 @@ public class SimpleController : MonoBehaviour
 	void Start ()
     {
         Mountain = GameObject.FindGameObjectWithTag("Mountain").GetComponent<Mountain>();
-        ActiveCube = Mountain.Root;
+        ActiveCube = GetStartCube();
 	}
 	
 	// Update is called once per frame
@@ -60,10 +57,6 @@ public class SimpleController : MonoBehaviour
             {
                 ActiveCube = ActiveCube.Right;
             }
-            else
-            {
-                Debug.Log("nav labā");
-            }
         }
         if(direction < 0f)
         {
@@ -71,10 +64,37 @@ public class SimpleController : MonoBehaviour
             {
                 ActiveCube = ActiveCube.Left;
             }
+        }
+    }
+
+    Cube GetStartCube()
+    {
+        if (Mountain == null) { return null; }
+        List<Cube> startRow = Mountain.GetStartRow();
+        int count = startRow.Count;
+        //modify number if its even
+        int modifier = 0;
+        int random = 0;
+        int index = 0;
+        if (count % 2 == 0)
+        {
+            random = Random.Range(0, 2);
+            if (random == 0)
+            {
+                modifier = 1;
+            }
             else
             {
-                Debug.Log("nav kreisā");
+                modifier = 0;
             }
+            index = count / 2 - modifier;    
         }
+        //gets middle element index
+        else
+        {
+            index = count / 2;
+        }
+        //return middle element
+        return startRow[index];
     }
 }
