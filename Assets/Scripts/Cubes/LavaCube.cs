@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Random = UnityEngine.Random;
 
 public class LavaCube : CubeAbstract
 {
@@ -31,7 +32,9 @@ public class LavaCube : CubeAbstract
 			return;
 		}
 
-		if (Right != null && !(Right is LavaCube))
+
+
+		if (Random.value > 0.5f && Right != null && !(Right is LavaCube))
 		{
 			//TOOO sadedzināt cubu
 			burnTime = 2;
