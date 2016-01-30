@@ -55,7 +55,6 @@ public class Cube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
-		throw new NotImplementedException();
 	}
 
 	public override bool CanMoveTo()

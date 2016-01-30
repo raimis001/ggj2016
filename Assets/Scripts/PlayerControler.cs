@@ -6,14 +6,17 @@ using System.Collections.Generic;
 
 public class PlayerControler : MonoBehaviour
 {
+	public Animation GirlAnimation;
+	public Transform GirlTransform;
 
+	[HideInInspector]
 	public bool Moving = false;
 	CubeAbstract _cube;
 
 	// Use this for initialization
 	void Start()
 	{
-
+		GirlAnimation.Play("Stand");
 	}
 
 	// Update is called once per frame
@@ -25,6 +28,12 @@ public class PlayerControler : MonoBehaviour
 	{
 		Debug.Log("Collision enetered:" + collision.gameObject.name);
 		Moving = false;
+		GirlAnimation.Play("Stand");
+		if (_cube != null)
+		{
+			_cube.OnPlayerLanded();
+		}
+
 	}
 
 	public void MoveToDirection(CubeAbstract cube)
@@ -41,9 +50,10 @@ public class PlayerControler : MonoBehaviour
 		}
 
 		Moving = true;
-
+		GirlAnimation.Play("Jump");
+		GirlTransform.LookAt(new Vector3(cube.transform.position.x, GirlTransform.position.y, cube.transform.position.z));
 		Vector3 startPos = transform.position;
-		Vector3 endPos = cube.transform.position - new Vector3(0.5f, 0, 0.5f); 
+		Vector3 endPos = new Vector3(cube.transform.position.x,startPos.y + 0.3f, cube.transform.position.z) - new Vector3(0.5f, 0, 0.5f); 
 		//startPos + new Vector3(direction < 0 ? 1 : 0, 0, direction > 0 ? 1 : 0);
 		float dTime = 0.5f;
 		float tmp = 0;
@@ -53,7 +63,5 @@ public class PlayerControler : MonoBehaviour
 			tmp += Time.smoothDeltaTime;
 			yield return null;
 		}
-
-		_cube.OnPlayerLanded();
   }
 }
