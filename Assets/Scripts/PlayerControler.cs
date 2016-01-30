@@ -98,10 +98,21 @@ public class PlayerControler : MonoBehaviour
 		Moving = true;
 		GirlAnimation.Play("Jump");
 		GirlTransform.LookAt(new Vector3(cube.transform.position.x, GirlTransform.position.y, cube.transform.position.z));
+		GirlTransform.Rotate(0, -180, 0);
+		Vector3 angles = GirlTransform.localEulerAngles;
+		if (angles.y > 200)
+		{
+			GirlTransform.Rotate(0, -30, 0);
+		}
+		else
+		{
+			GirlTransform.Rotate(0, 30, 0);
+		}
 		Vector3 startPos = transform.position;
-		Vector3 endPos = new Vector3(cube.transform.position.x,startPos.y + 0.3f, cube.transform.position.z) - new Vector3(0f, 0, 0f); 
-		//startPos + new Vector3(direction < 0 ? 1 : 0, 0, direction > 0 ? 1 : 0);
-		float dTime = 0.5f;
+		Vector3 endPos = new Vector3(cube.transform.position.x,startPos.y + 0.3f, cube.transform.position.z) - new Vector3(0f, 0, 0f);
+
+		
+    float dTime = 0.5f;
 		float tmp = 0;
 		while (tmp < dTime)
 		{
