@@ -40,6 +40,7 @@ public class LīmeņaKonfigurācijasInspektors : Editor
 		}
 		Pievienot();
 		Noņemt();
+		EditorUtility.SetDirty(Target);
 	}
 
 	void Pievienot()

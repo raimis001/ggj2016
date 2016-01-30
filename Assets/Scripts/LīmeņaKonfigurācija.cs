@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
-public class KalnaApraksts : ScriptableObject
+[Serializable]
+public class KalnaApraksts
 {
 	public int CubesInFirstRow = 3;
 	public int Rows = 10;
@@ -12,7 +14,8 @@ public class KalnaApraksts : ScriptableObject
 	public int StartRowIndex = 2;
 }
 
-public class KubaApraksts : ScriptableObject
+[Serializable]
+public class KubaApraksts
 {
 	public int RindasIndeks = 0;
 	public int IndeksRindā = 0;
@@ -21,6 +24,6 @@ public class KubaApraksts : ScriptableObject
 
 public class LīmeņaKonfigurācija : ScriptableObject
 {
-	public KalnaApraksts KalnaApraksts = ScriptableObject.CreateInstance<KalnaApraksts>();
+	public KalnaApraksts KalnaApraksts = new KalnaApraksts();
 	public List<KubaApraksts> SagatavotieKubi = new List<KubaApraksts>();
 }

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Mountain : MonoBehaviour
 {
-	public KalnaApraksts KalnaApraksts = null;
+	public LīmeņaKonfigurācija Konfigurācija = null;
+	LīmeņaKonfigurācija KonfigurācijasInstance;
 	/// <summary>
 	/// All cube type prefab list
 	/// </summary>
@@ -28,9 +29,13 @@ public class Mountain : MonoBehaviour
 	/// </summary>
 	public List<List<CubeAbstract>> Content = new List<List<CubeAbstract>>();
 
+	KalnaApraksts KalnaApraksts = null;
+
 	// Use this for initialization
 	void Awake()
 	{
+		KonfigurācijasInstance = ScriptableObject.Instantiate(Konfigurācija);
+        KalnaApraksts = KonfigurācijasInstance.KalnaApraksts;
 		KalnaApraksts.StartRowIndex = Mathf.Clamp(KalnaApraksts.StartRowIndex, 0, KalnaApraksts.Rows - 1);
 		Generate();
 	}
