@@ -42,7 +42,7 @@ public class SimpleController : MonoBehaviour
 	{
 		Mountain = GameObject.FindGameObjectWithTag("Mountain").GetComponent<Mountain>();
 		ActiveCube = GetStartCube();
-		Player.transform.position = ActiveCube.transform.position + new Vector3(-0.5f, 0.5f, -0.5f);
+		Player.transform.position = ActiveCube.transform.position + new Vector3(0f, 1f, 0f);
 	}
 
 	
