@@ -4,6 +4,9 @@ using System;
 
 public class LavaCube : CubeAbstract
 {
+
+	float burnTime = 2;
+
 	public override bool CanMoveTo()
 	{
 		return true;
@@ -17,6 +20,29 @@ public class LavaCube : CubeAbstract
 	// Use this for initialization
 	void Start()
 	{
+		if ((Right == null || Right is LavaCube) && (Left == null || Left is LavaCube))
+		{
+			return;
+		}
+
+		burnTime -= Time.deltaTime;
+		if (burnTime > 0)
+		{
+			return;
+		}
+
+		if (Right != null && !(Right is LavaCube))
+		{
+			//TOOO sadedzināt cubu
+			burnTime = 2;
+      return;
+		}
+		if (Left != null && !(Left is LavaCube))
+		{
+			//TOOO sadedzināt cubu
+			burnTime = 2;
+			return;
+		}
 
 	}
 

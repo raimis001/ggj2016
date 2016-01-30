@@ -3,7 +3,8 @@ using System.Collections;
 
 public abstract class CubeAbstract : MonoBehaviour
 {
-	public CubeAbstract Left  { get; set; }
+
+	public CubeAbstract Left { get; set; }
 	public CubeAbstract Right { get; set; }
 	/*public Renderer Renderer
 	{
@@ -24,8 +25,8 @@ public abstract class CubeAbstract : MonoBehaviour
 		Renderer testRenderer = GetComponent<Renderer>();
 		if (testRenderer != null)
 		{
-			Renderer = testRenderer; 
-        }
+			Renderer = testRenderer;
+		}
 	}
 
 	public bool Nāvējošs
@@ -51,5 +52,10 @@ public abstract class CubeAbstract : MonoBehaviour
 	public virtual void Neizgaismot()
 	{
 		//Renderer.material.color = Color.white;
+	}
+
+	public virtual void BurnCube()
+	{
+
 	}
 }
