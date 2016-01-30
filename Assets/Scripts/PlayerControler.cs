@@ -66,7 +66,7 @@ public class PlayerControler : MonoBehaviour
 		{
 			_cube.OnPlayerLanded();
 		}
-
+		//_cube.
 	}
 
 	public void MoveToDirection(CubeAbstract cube)
