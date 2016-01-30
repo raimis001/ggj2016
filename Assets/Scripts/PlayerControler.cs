@@ -43,7 +43,7 @@ public class PlayerControler : MonoBehaviour
 	{
 		Debug.Log("Collision enetered:" + collision.gameObject.name);
 		Moving = false;
-		GirlAnimation.Play("Stand");
+		StopGirl();
 		if (_cube != null)
 		{
 			_cube.OnPlayerLanded();
@@ -56,6 +56,12 @@ public class PlayerControler : MonoBehaviour
 		_cube = cube;
 		StartCoroutine(MoveChar(cube));
 	}
+
+	public void StopGirl()
+	{
+		GirlAnimation.Play("Stand");
+		GirlTransform.localEulerAngles = new Vector3(0, 225, 0);
+  }
 
 	IEnumerator MoveChar( CubeAbstract cube)
 	{

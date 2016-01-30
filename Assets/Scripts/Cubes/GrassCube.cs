@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Random = UnityEngine.Random;
 
 public class GrassCube : CubeAbstract
 {
 	public Item Item;
+
+	public GameObject[] Items;
 
 	public Material[] Grass;
 	public GameObject GrassObject;
@@ -12,6 +15,10 @@ public class GrassCube : CubeAbstract
 	void Start()
 	{
 		GrassObject.GetComponent<Renderer>().sharedMaterial = Grass[UnityEngine.Random.Range(0, Grass.Length)];
+		if (Random.value < 0.1f)
+		{
+			AddItem(Items[Random.Range(0, Items.Length)]);
+		}
 	}
 
 	public void AddItem(GameObject item)
