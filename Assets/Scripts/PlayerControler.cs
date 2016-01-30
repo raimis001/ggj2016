@@ -35,8 +35,11 @@ public class PlayerControler : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		GirlAnimation.Play("Stand");
-	}
+
+		StopGirl();
+  
+		
+		}
 
 	// Update is called once per frame
 	void Update()
@@ -75,6 +78,11 @@ public class PlayerControler : MonoBehaviour
 	public void StopGirl()
 	{
 		GirlAnimation.Play("Stand");
+		GirlAnimation["EyeBlink"].layer = 1;
+		GirlAnimation.Play("EyeBlink");
+		GirlAnimation["EyeBlink"].weight = 0.4f;
+		GirlAnimation["EyeBlink"].speed = 0.5f;
+
 		GirlTransform.localEulerAngles = new Vector3(0, 225, 0);
   }
 
