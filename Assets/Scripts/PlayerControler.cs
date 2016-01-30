@@ -16,7 +16,21 @@ public class PlayerControler : MonoBehaviour
 	public delegate void ScoreChange();
 	public static event ScoreChange OnScoreChange;
 
+	static PlayerControler _instance = null;
+	public static PlayerControler Instance
+	{
+		get
+		{
+			return _instance;
+		}
+	}
+
 	CubeAbstract _cube;
+
+	void Awake()
+	{
+		_instance = this;
+	}
 
 	// Use this for initialization
 	void Start()
@@ -63,6 +77,10 @@ public class PlayerControler : MonoBehaviour
 		GirlTransform.localEulerAngles = new Vector3(0, 225, 0);
   }
 
+	public void BurnPlayer()
+	{
+
+	}
 	IEnumerator MoveChar( CubeAbstract cube)
 	{
 		if (Moving)
