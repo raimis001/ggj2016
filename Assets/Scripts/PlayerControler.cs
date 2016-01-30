@@ -24,6 +24,7 @@ public class PlayerControler : MonoBehaviour
 	{
 
 	}
+
 	void OnCollisionEnter(Collision collision)
 	{
 		Debug.Log("Collision enetered:" + collision.gameObject.name);

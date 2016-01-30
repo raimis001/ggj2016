@@ -7,6 +7,6 @@ public class CustomAssets : Editor
     [MenuItem("Piederumi/Radīt/KubuTipi")]
     public static void CreateCubeTypes()
     {
-        KodējamaisObjekts.Radīt<CubeTypes>();
+        KodējamaisObjekts.Radīt<CubePrefabs>();
     }
 }

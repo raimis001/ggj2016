@@ -9,16 +9,6 @@ public class TreeCube : CubeAbstract
 		return false;
 	}
 
-	public override void Izgaismot()
-	{
-		throw new NotImplementedException();
-	}
-
-	public override void Neizgaismot()
-	{
-		throw new NotImplementedException();
-	}
-
 	public override void OnPlayerLanded()
 	{
 		throw new NotImplementedException();

@@ -10,7 +10,11 @@ public class Mountain : MonoBehaviour
     /// Starts with 0
     /// </summary>
     public int StartRowIndex = 2;
-    public GameObject BlockModel;
+	/// <summary>
+	/// All cube type prefab list
+	/// </summary>
+	[Tooltip("All cube type prefab list")]
+    public CubePrefabs Prefabs;
 
     public List<CubeAbstract> FirstRow
     {
@@ -57,9 +61,10 @@ public class Mountain : MonoBehaviour
             currentPosition = startPosition;
             for (int cubeIndex = 0; cubeIndex < cubesPerRow; cubeIndex++)
             {
-                //creation
-                block = Instantiate(BlockModel);
+				//creation
+				block = Prefabs.GetInstance(Prefabs.DefinedTypes.Nejaušs());
                 block.transform.position = currentPosition;
+				block.transform.parent = transform;
                 currentPosition += new Vector3(-1f, 0f, 1f);
                 //assigning self as move target
                 cube = block.GetComponent<CubeAbstract>();

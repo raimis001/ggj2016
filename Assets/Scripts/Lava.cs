@@ -23,7 +23,7 @@ public class Lava : MonoBehaviour
     /// </summary>
     void ConsumeFirstRow()
     {
-        foreach(Cube cube in Mountain.FirstRow)
+        foreach(CubeAbstract cube in Mountain.FirstRow)
         {
             Consume(cube);
         }
@@ -32,7 +32,7 @@ public class Lava : MonoBehaviour
     /// <summary>
     /// Converts cube into lava
     /// </summary>
-    void Consume(Cube cube)
+    void Consume(CubeAbstract cube)
     {
         cube.Nāvējošs = true;
         cube.Renderer.material.color = Color.red;

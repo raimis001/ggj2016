@@ -11,16 +11,6 @@ public class GrassCube : CubeAbstract
 		return true;
 	}
 
-	public override void Izgaismot()
-	{
-		throw new NotImplementedException();
-	}
-
-	public override void Neizgaismot()
-	{
-		throw new NotImplementedException();
-	}
-
 	public override void OnPlayerLanded()
 	{
 		if (Item != null)
