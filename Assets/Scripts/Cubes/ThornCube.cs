@@ -17,9 +17,9 @@ public class ThornCube : CubeAbstract
 	}
 
 	// Use this for initialization
-	void Start()
+	override protected void Start()
 	{
-
+		base.Start();
 	}
 
 	// Update is called once per frame

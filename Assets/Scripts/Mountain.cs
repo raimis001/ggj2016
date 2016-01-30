@@ -63,20 +63,11 @@ public class Mountain : MonoBehaviour
 				currentPosition += new Vector3(-1f, 0f, 1f);
 				//assigning self as move target
 				cube = block.GetComponent<CubeAbstract>();
+				cube.Row = row;
+				cube.Index = cubeIndex;
 				if (row == 0)
 				{
 					FirstRow.Add(cube);
-				}
-				else
-				{
-					if (cubeIndex != 0)
-					{
-						previousRow[cubeIndex - 1].Right = cube;
-					}
-					if (cubeIndex != cubesPerRow - 1)
-					{
-						previousRow[cubeIndex].Left = cube;
-					}
 				}
 				currentRow.Add(cube);
 			}
@@ -90,5 +81,16 @@ public class Mountain : MonoBehaviour
 	public List<CubeAbstract> GetStartRow()
 	{
 		return Content[KalnaApraksts.StartRowIndex];
+	}
+
+	/// <summary>
+	/// Changer takes target place and destroys it
+	/// </summary>
+	public void Replace(CubeAbstract changer, CubeAbstract target)
+	{
+		Content[target.Row][target.Index] = changer;
+		changer.transform.position = target.transform.position;
+		changer.transform.parent = target.transform.parent;
+		GameObject.Destroy(target.gameObject);
 	}
 }

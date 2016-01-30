@@ -5,12 +5,13 @@ using System.Collections;
 public class Lava : MonoBehaviour
 {
     Mountain Mountain = null;
+	CubePrefabs CubePrefabs = null;
     
 	// Use this for initialization
-	void Start ()
+	protected virtual void Start()
     {
         Mountain = GetComponent<Mountain>();
-        ConsumeFirstRow();
+		ConsumeFirstRow();
 	}
 	
 	// Update is called once per frame
@@ -34,7 +35,6 @@ public class Lava : MonoBehaviour
     /// </summary>
     void Consume(CubeAbstract cube)
     {
-        //cube.Nāvējošs = true;
-        //cube.Renderer.material.color = Color.red;
+		Mountain.Replace(Instantiate(Mountain.Prefabs.Lava), cube);
     }
 }

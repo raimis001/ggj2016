@@ -12,8 +12,9 @@ public class GrassCube : CubeAbstract
 	public Material[] Grass;
 	public GameObject GrassObject;
 
-	void Start()
+	override protected void Start()
 	{
+		base.Start();
 		GrassObject.GetComponent<Renderer>().sharedMaterial = Grass[UnityEngine.Random.Range(0, Grass.Length)];
 		if (Random.value < 0.1f)
 		{

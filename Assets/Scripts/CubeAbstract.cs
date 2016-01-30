@@ -3,21 +3,36 @@ using System.Collections;
 
 public abstract class CubeAbstract : MonoBehaviour
 {
+	/// <summary>
+	/// Index for row
+	/// </summary>
+	public int Row = 0;
+	/// <summary>
+	/// Index for place in row
+	/// </summary>
+	public int Index = 0;
 
-	public CubeAbstract Left { get; set; }
-	public CubeAbstract Right { get; set; }
-	/*public Renderer Renderer
+	public CubeAbstract Left
 	{
 		get
 		{
-			return _Renderer;
+			if (Mountain == null) { return null; }
+			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows) { return null; }
+			return Mountain.Content[Row + 1][Index];
 		}
-		set
+	}
+	public CubeAbstract Right
+	{
+		get
 		{
-			_Renderer = value;
+			if (Mountain == null) { return null; }
+			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows) { return null; }
+			return Mountain.Content[Row + 1][Index + 1];
 		}
-	}*/
+	}
 	public Renderer Renderer = null;
+
+	Mountain Mountain = null;
 
 	// Use this for initialization
 	void Awake()
@@ -28,6 +43,11 @@ public abstract class CubeAbstract : MonoBehaviour
 			Renderer = testRenderer;
 		}
 	}
+
+	protected virtual void Start()
+	{
+		Mountain = GameObject.FindGameObjectWithTag("Mountain").GetComponent<Mountain>();
+    }
 
 	public bool Nāvējošs
 	{
@@ -47,11 +67,13 @@ public abstract class CubeAbstract : MonoBehaviour
 
 	public virtual void Izgaismot()
 	{
+		if (Renderer == null) { return; }
 		Renderer.material.color = Color.green;
 	}
 	public virtual void Neizgaismot()
 	{
-		//Renderer.material.color = Color.white;
+		if (Renderer == null) { return; }
+		Renderer.material.color = Color.white;
 	}
 
 	public virtual void BurnCube()
