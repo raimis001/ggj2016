@@ -68,7 +68,7 @@ public class PlayerControler : MonoBehaviour
 		GirlAnimation.Play("Jump");
 		GirlTransform.LookAt(new Vector3(cube.transform.position.x, GirlTransform.position.y, cube.transform.position.z));
 		Vector3 startPos = transform.position;
-		Vector3 endPos = new Vector3(cube.transform.position.x,startPos.y + 0.3f, cube.transform.position.z) - new Vector3(0.5f, 0, 0.5f); 
+		Vector3 endPos = new Vector3(cube.transform.position.x,startPos.y + 0.1f, cube.transform.position.z) - new Vector3(0f, 0, 0f); 
 		//startPos + new Vector3(direction < 0 ? 1 : 0, 0, direction > 0 ? 1 : 0);
 		float dTime = 0.5f;
 		float tmp = 0;

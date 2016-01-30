@@ -8,22 +8,12 @@ public class SwampCube : CubeAbstract
 
 	public override bool CanMoveTo()
 	{
-		throw new NotImplementedException();
+		return true;
 	}
 
-	public override void Izgaismot()
-	{
-		throw new NotImplementedException();
-	}
-
-	public override void Neizgaismot()
-	{
-		throw new NotImplementedException();
-	}
 
 	public override void OnPlayerLanded()
 	{
-		throw new NotImplementedException();
 	}
 
 	// Use this for initialization

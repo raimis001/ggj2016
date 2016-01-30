@@ -6,12 +6,11 @@ public class TreeCube : CubeAbstract
 {
 	public override bool CanMoveTo()
 	{
-		return false;
+		return true;
 	}
 
 	public override void OnPlayerLanded()
 	{
-		throw new NotImplementedException();
 	}
 
 	// Use this for initialization

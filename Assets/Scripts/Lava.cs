@@ -34,7 +34,7 @@ public class Lava : MonoBehaviour
     /// </summary>
     void Consume(CubeAbstract cube)
     {
-        cube.Nāvējošs = true;
-        cube.Renderer.material.color = Color.red;
+        //cube.Nāvējošs = true;
+        //cube.Renderer.material.color = Color.red;
     }
 }

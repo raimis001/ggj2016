@@ -50,6 +50,6 @@ public abstract class CubeAbstract : MonoBehaviour
 	}
 	public virtual void Neizgaismot()
 	{
-		Renderer.material.color = Color.white;
+		//Renderer.material.color = Color.white;
 	}
 }
