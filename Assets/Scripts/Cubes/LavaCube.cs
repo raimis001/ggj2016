@@ -23,7 +23,7 @@ public class LavaCube : CubeAbstract
 	{
 		Mountain = GameObject.FindGameObjectWithTag("Mountain").GetComponent<Mountain>();
     }
-	/*
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -51,5 +51,4 @@ public class LavaCube : CubeAbstract
 			return;
 		}
 	}
-	*/
 }

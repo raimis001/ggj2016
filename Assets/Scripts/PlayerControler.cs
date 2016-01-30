@@ -109,7 +109,6 @@ public class PlayerControler : MonoBehaviour
 		{
 			yield break;
 		}
-
 		Moving = true;
 		GirlAnimation.Play("Jump");
 		GirlTransform.LookAt(new Vector3(cube.transform.position.x, GirlTransform.position.y, cube.transform.position.z));

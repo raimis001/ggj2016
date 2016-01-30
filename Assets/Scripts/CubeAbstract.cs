@@ -17,7 +17,7 @@ public abstract class CubeAbstract : MonoBehaviour
 		get
 		{
 			if (Mountain == null) { return null; }
-			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows) { return null; }
+			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows - 1) { return null; }
 			return Mountain.Content[Row + 1][Index];
 		}
 	}
@@ -26,7 +26,7 @@ public abstract class CubeAbstract : MonoBehaviour
 		get
 		{
 			if (Mountain == null) { return null; }
-			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows) { return null; }
+			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows - 1) { return null; }
 			return Mountain.Content[Row + 1][Index + 1];
 		}
 	}
