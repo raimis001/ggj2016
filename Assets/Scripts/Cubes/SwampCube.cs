@@ -10,7 +10,10 @@ public class SwampCube : CubeAbstract
 	{
 		return true;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2e897e5198fb98bdea16cc0f4541a9dd4b0cea69
 
 	public override void OnPlayerLanded()
 	{
