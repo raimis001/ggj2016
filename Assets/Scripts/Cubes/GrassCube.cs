@@ -44,6 +44,7 @@ public class GrassCube : CubeAbstract
 		if (Item != null)
 		{
 			Item.OnItemTake();
+			Destroy(Item);
     }
 	}
 
