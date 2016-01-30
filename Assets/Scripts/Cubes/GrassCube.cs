@@ -32,6 +32,7 @@ public class GrassCube : CubeAbstract
 		obj.transform.SetParent(transform);
 		obj.transform.localPosition = Vector3.zero;
 		obj.transform.localScale = Vector3.one;
+		Item = obj.GetComponent<Item>();
 	}
 
 	public override bool CanMoveTo()
@@ -44,7 +45,7 @@ public class GrassCube : CubeAbstract
 		if (Item != null)
 		{
 			Item.OnItemTake();
-    }
+		}
 	}
 
 

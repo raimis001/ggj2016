@@ -35,6 +35,9 @@ public static partial class Paplašinājumi
 
 public class CubePrefabs : ScriptableObject
 {
+	[Tooltip("Visaugstākās prioritātes rašanās parametri")]
+	public KubaParametri RašanāsPrioritāte;
+
     public GameObject Zāle;
     public GameObject Kaza;
     public GameObject Koks;
@@ -44,48 +47,13 @@ public class CubePrefabs : ScriptableObject
     public GameObject Pirāts;
     public GameObject Nogruvums;
 
-	/// <summary>
-	/// Returns non null prefab types
-	/// </summary>
-	public List<KubaTips> DefinedTypes
+	public GameObject GetPrefab()
 	{
-		get
-		{
-			List<KubaTips> types = new List<KubaTips>();
-			foreach (KubaTips type in Enum.GetValues(typeof(KubaTips)))
-			{
-				if (HavePrefab(type))
-				{
-					types.Add(type);
-				}
-			}
-			return types;
-		}
+		return RašanāsPrioritāte.IegūtSagatavi();
 	}
 
-	public GameObject GetPrefab(KubaTips tips)
+	public GameObject GetInstance()
 	{
-		switch(tips)
-		{
-			case KubaTips.Zāle: return Zāle;
-			case KubaTips.Kaza: return Kaza;
-			case KubaTips.Koks: return Koks;
-			case KubaTips.Akmens: return Akmens;
-			case KubaTips.Purvs: return Purvs;
-			case KubaTips.Nauda: return Nauda;
-			case KubaTips.Pirāts: return Pirāts;
-			case KubaTips.Nogruvums: return Nogruvums;
-		}
-		return null;
-	}
-
-	public GameObject GetInstance(KubaTips tips)
-	{
-		return Instantiate(GetPrefab(tips));
-	}
-
-	public bool HavePrefab(KubaTips tips)
-	{
-		return GetPrefab(tips) != null;
+		return Instantiate(GetPrefab());
 	}
 }
