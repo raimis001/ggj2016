@@ -29,9 +29,9 @@ public class GrassCube : CubeAbstract
 		}
 
 		GameObject obj = Instantiate(item);
+		obj.transform.SetParent(transform);
 		obj.transform.localPosition = Vector3.zero;
 		obj.transform.localScale = Vector3.one;
-		obj.transform.SetParent(transform);
 	}
 
 	public override bool CanMoveTo()

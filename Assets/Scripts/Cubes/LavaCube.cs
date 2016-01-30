@@ -11,7 +11,7 @@ public class LavaCube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
-		PlayerControler.Instance.BurnPlayer();
+		PlayerControler.Instance.BurnGirl();
 	}
 
 	// Use this for initialization

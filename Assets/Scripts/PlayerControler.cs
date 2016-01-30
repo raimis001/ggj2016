@@ -77,10 +77,16 @@ public class PlayerControler : MonoBehaviour
 		GirlTransform.localEulerAngles = new Vector3(0, 225, 0);
   }
 
-	public void BurnPlayer()
+	public void BurnGirl()
 	{
 
 	}
+
+	public void SlopeGirl(CubeAbstract cube)
+	{
+		MoveToDirection(cube);
+  }
+
 	IEnumerator MoveChar( CubeAbstract cube)
 	{
 		if (Moving)
