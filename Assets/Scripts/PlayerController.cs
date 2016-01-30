@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-public class PlayerControler : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 	public Animation GirlAnimation;
 	public Transform GirlTransform;
@@ -16,8 +16,8 @@ public class PlayerControler : MonoBehaviour
 	public delegate void ScoreChange();
 	public static event ScoreChange OnScoreChange;
 
-	static PlayerControler _instance = null;
-	public static PlayerControler Instance
+	static PlayerController _instance = null;
+	public static PlayerController Instance
 	{
 		get
 		{

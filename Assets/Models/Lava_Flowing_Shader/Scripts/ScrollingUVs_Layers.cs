@@ -8,13 +8,19 @@ public class ScrollingUVs_Layers : MonoBehaviour
 	public string textureName = "_MainTex";
 	
 	Vector2 uvOffset = Vector2.zero;
-	
+	Renderer Renderer = null;
+
+	void Start()
+	{
+		Renderer = GetComponent<Renderer>();
+    }
+
 	void LateUpdate() 
 	{
 		uvOffset += ( uvAnimationRate * Time.deltaTime );
-		if( GetComponent<Renderer>().enabled )
+		if( Renderer.enabled )
 		{
-			GetComponent<Renderer>().sharedMaterial.SetTextureOffset( textureName, uvOffset );
+			Renderer.material.SetTextureOffset( textureName, uvOffset );
 		}
 	}
 }

@@ -89,6 +89,8 @@ public class Mountain : MonoBehaviour
 	public void Replace(CubeAbstract changer, CubeAbstract target)
 	{
 		Content[target.Row][target.Index] = changer;
+		changer.Row = target.Row;
+		changer.Index = target.Index;
 		changer.transform.position = target.transform.position;
 		changer.transform.parent = target.transform.parent;
 		GameObject.Destroy(target.gameObject);

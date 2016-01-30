@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
 
 	public virtual void OnItemTake()
 	{
-		PlayerControler.AddScore(Value);
+		PlayerController.AddScore(Value);
 	}
 
 }

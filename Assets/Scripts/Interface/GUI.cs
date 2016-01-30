@@ -15,14 +15,14 @@ public class GUI : MonoBehaviour
 		{
 			ScoreText.text = "0";
 		}
-		PlayerControler.OnScoreChange += OnScoreChange;
+		PlayerController.OnScoreChange += OnScoreChange;
 	}
 
 	private void OnScoreChange()
 	{
 		if (ScoreText)
 		{
-			ScoreText.text = PlayerControler.Score.ToString();
+			ScoreText.text = PlayerController.Score.ToString();
 		}
 	}
 

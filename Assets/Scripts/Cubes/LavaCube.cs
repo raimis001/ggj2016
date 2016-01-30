@@ -5,7 +5,9 @@ using Random = UnityEngine.Random;
 
 public class LavaCube : CubeAbstract
 {
-	float burnTime = 2;
+	public	float BurnTimeMin = 1f;
+	public float BurnTimeMax = 3f;
+	float LeftBurnTime = 1f;
 
 	public override bool CanMoveTo()
 	{
@@ -14,7 +16,7 @@ public class LavaCube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
-		PlayerControler.Instance.BurnGirl();
+		//PlayerController.Instance.BurnGirl();
 	}
 
 	// Use this for initialization
@@ -30,22 +32,29 @@ public class LavaCube : CubeAbstract
 		{
 			return;
 		}
-		burnTime -= Time.fixedDeltaTime;
-		if (burnTime > 0)
+		LeftBurnTime -= Time.fixedDeltaTime;
+		if (LeftBurnTime > 0f)
 		{
 			return;
 		}
-		if (Random.value > 0.5f && Right != null && !(Right is LavaCube))
+		if (Random.value > 0.5f)
 		{
-			Mountain.Replace(Instantiate(Mountain.Prefabs.Lava), Right);
-			burnTime = 2;
-			return;
+			if(Right != null && !(Right is LavaCube))
+            {
+				Mountain.Replace(Instantiate(Mountain.Prefabs.Lava), Right);
+			}
+			
 		}
-		if (Left != null && !(Left is LavaCube))
+		else
 		{
-			Mountain.Replace(Instantiate(Mountain.Prefabs.Lava), Left);
-			burnTime = 2;
-			return;
+			if (Left != null && !(Left is LavaCube))
+			{
+				Mountain.Replace(Instantiate(Mountain.Prefabs.Lava), Left);
+			}
 		}
-	}
+		if (LeftBurnTime <= 0f)
+		{
+			LeftBurnTime = Random.Range(BurnTimeMin, BurnTimeMax);
+		}
+    }
 }

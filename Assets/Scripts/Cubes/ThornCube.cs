@@ -12,7 +12,7 @@ public class ThornCube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
-		PlayerControler.AddScore(Value);
+		PlayerController.AddScore(Value);
 		
 	}
 

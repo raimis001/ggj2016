@@ -6,12 +6,12 @@ public abstract class CubeAbstract : MonoBehaviour
 	/// <summary>
 	/// Index for row
 	/// </summary>
-	[HideInInspector]
+	//[HideInInspector]
 	public int Row = 0;
 	/// <summary>
 	/// Index for place in row
 	/// </summary>
-	[HideInInspector]
+	//[HideInInspector]
 	public int Index = 0;
 
 	public CubeAbstract Left

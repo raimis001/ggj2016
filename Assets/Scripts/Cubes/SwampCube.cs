@@ -13,7 +13,7 @@ public class SwampCube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
-		PlayerControler.Moving = true;
+		PlayerController.Moving = true;
 		StuckTime = 2f;
   }
 
@@ -33,7 +33,7 @@ public class SwampCube : CubeAbstract
 		StuckTime -= Time.deltaTime;
 		if (StuckTime <= 0)
 		{
-			PlayerControler.Moving = false;
+			PlayerController.Moving = false;
 			StuckTime = 0;
     }
 	}

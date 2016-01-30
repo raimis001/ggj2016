@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SimpleController : MonoBehaviour
 {
 
-	public PlayerControler Player;
+	public PlayerController Player;
 
 	Mountain Mountain;
 	/// <summary>
@@ -60,7 +60,7 @@ public class SimpleController : MonoBehaviour
 
 	void MoveToCube(float direction)
 	{
-		if (PlayerControler.Moving)
+		if (PlayerController.Moving)
 		{
 			return;
 		}
