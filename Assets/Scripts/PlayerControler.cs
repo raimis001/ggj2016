@@ -11,6 +11,11 @@ public class PlayerControler : MonoBehaviour
 
 	[HideInInspector]
 	public bool Moving = false;
+
+	public static int Score = 0;
+	public delegate void ScoreChange();
+	public static event ScoreChange OnScoreChange;
+
 	CubeAbstract _cube;
 
 	// Use this for initialization
@@ -23,6 +28,15 @@ public class PlayerControler : MonoBehaviour
 	void Update()
 	{
 
+	}
+
+	public static void AddScore(int score)
+	{
+		Score += score;
+		if (OnScoreChange != null)
+		{
+			OnScoreChange();
+		}
 	}
 
 	void OnCollisionEnter(Collision collision)

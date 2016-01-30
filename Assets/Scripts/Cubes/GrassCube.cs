@@ -4,7 +4,28 @@ using System;
 
 public class GrassCube : CubeAbstract
 {
-	public GameObject Item;
+	public Item Item;
+
+	public Material[] Grass;
+	public GameObject GrassObject;
+
+	void Start()
+	{
+		GrassObject.GetComponent<Renderer>().sharedMaterial = Grass[UnityEngine.Random.Range(0, Grass.Length)];
+	}
+
+	public void AddItem(GameObject item)
+	{
+		if (Item)
+		{
+			Destroy(Item.gameObject);
+		}
+
+		GameObject obj = Instantiate(item);
+		obj.transform.localPosition = Vector3.zero;
+		obj.transform.localScale = Vector3.one;
+		obj.transform.SetParent(transform);
+	}
 
 	public override bool CanMoveTo()
 	{
@@ -15,15 +36,10 @@ public class GrassCube : CubeAbstract
 	{
 		if (Item != null)
 		{
-			Debug.Log("Playe gather item");
-		}
+			Item.OnItemTake();
+    }
 	}
 
-	// Use this for initialization
-	void Start()
-	{
-
-	}
 
 	// Update is called once per frame
 	void Update()
