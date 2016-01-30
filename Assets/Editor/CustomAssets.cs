@@ -9,4 +9,10 @@ public class CustomAssets : Editor
     {
         KodējamaisObjekts.Radīt<CubePrefabs>();
     }
+
+	[MenuItem("Piederumi/Radīt/KubuParametri")]
+	public static void CreateCubeParameters()
+	{
+		KodējamaisObjekts.Radīt<KubaParametri>();
+	}
 }

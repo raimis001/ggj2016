@@ -40,12 +40,6 @@ public class Mountain : MonoBehaviour
 		Generate();
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
 	public void Generate()
 	{
 		List<CubeAbstract> currentRow = null;
@@ -63,7 +57,7 @@ public class Mountain : MonoBehaviour
 			for (int cubeIndex = 0; cubeIndex < cubesPerRow; cubeIndex++)
 			{
 				//creation
-				block = Prefabs.GetInstance(Prefabs.DefinedTypes.Nejaušs());
+				block = Prefabs.GetInstance();
 				block.transform.position = currentPosition;
 				block.transform.parent = transform;
 				currentPosition += new Vector3(-1f, 0f, 1f);
