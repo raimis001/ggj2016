@@ -47,6 +47,7 @@ public class PlayerControler : MonoBehaviour
 	public static void AddScore(int score)
 	{
 		Score += score;
+		if (Score < 0) Score = 0;
 		if (OnScoreChange != null)
 		{
 			OnScoreChange();
