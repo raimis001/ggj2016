@@ -12,7 +12,7 @@ public class Mountain : MonoBehaviour
     public int StartRowIndex = 2;
     public GameObject BlockModel;
 
-    public List<Cube> FirstRow
+    public List<CubeAbstract> FirstRow
     {
         get
         {
@@ -23,11 +23,11 @@ public class Mountain : MonoBehaviour
             _FirstRow = value;
         }
     }
-    List<Cube> _FirstRow = new List<Cube>();
+    List<CubeAbstract> _FirstRow = new List<CubeAbstract>();
     /// <summary>
     /// All mountain rows with cubes
     /// </summary>
-    public List<List<Cube>> Content = new List<List<Cube>>();
+    public List<List<CubeAbstract>> Content = new List<List<CubeAbstract>>();
 
     // Use this for initialization
     void Awake()
@@ -43,17 +43,17 @@ public class Mountain : MonoBehaviour
 
     public void Generate()
     {
-        List<Cube> currentRow = null;
-        List<Cube> previousRow = null;
+        List<CubeAbstract> currentRow = null;
+        List<CubeAbstract> previousRow = null;
         GameObject block;
-        Cube cube;
+        CubeAbstract cube;
         int cubesPerRow = CubesInFirstRow;
         //Start position for row
         Vector3 startPosition = Vector3.zero;
         Vector3 currentPosition = Vector3.zero;
         for(int row = 0; row < Rows; row++)
         {
-            currentRow = new List<Cube>();
+            currentRow = new List<CubeAbstract>();
             currentPosition = startPosition;
             for (int cubeIndex = 0; cubeIndex < cubesPerRow; cubeIndex++)
             {
@@ -62,7 +62,7 @@ public class Mountain : MonoBehaviour
                 block.transform.position = currentPosition;
                 currentPosition += new Vector3(-1f, 0f, 1f);
                 //assigning self as move target
-                cube = block.GetComponent<Cube>();
+                cube = block.GetComponent<CubeAbstract>();
                 if (row == 0)
                 {
                     FirstRow.Add(cube);
@@ -87,7 +87,7 @@ public class Mountain : MonoBehaviour
         }
     }
 
-    public List<Cube> GetStartRow()
+    public List<CubeAbstract> GetStartRow()
     {
         return Content[StartRowIndex];
     }
