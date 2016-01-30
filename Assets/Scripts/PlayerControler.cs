@@ -98,12 +98,10 @@ public class PlayerControler : MonoBehaviour
 
 	IEnumerator MoveChar( CubeAbstract cube)
 	{
-		Debug.Log("cenšos");
 		if (Moving)
 		{
 			yield break;
 		}
-
 		Moving = true;
 		GirlAnimation.Play("Jump");
 		GirlTransform.LookAt(new Vector3(cube.transform.position.x, GirlTransform.position.y, cube.transform.position.z));
