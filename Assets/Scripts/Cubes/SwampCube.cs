@@ -4,7 +4,7 @@ using System;
 
 public class SwampCube : CubeAbstract
 {
-	public float StuckTime = 2f;
+	public float StuckTime = 02f;
 
 	public override bool CanMoveTo()
 	{
@@ -13,7 +13,9 @@ public class SwampCube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
-	}
+		PlayerControler.Moving = true;
+		StuckTime = 2f;
+  }
 
 	// Use this for initialization
 	void Start()
@@ -24,6 +26,15 @@ public class SwampCube : CubeAbstract
 	// Update is called once per frame
 	void Update()
 	{
-
+		if (StuckTime == 0)
+		{
+			return;
+		}
+		StuckTime -= Time.deltaTime;
+		if (StuckTime <= 0)
+		{
+			PlayerControler.Moving = false;
+			StuckTime = 0;
+    }
 	}
 }

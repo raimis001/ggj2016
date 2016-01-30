@@ -10,7 +10,7 @@ public class PlayerControler : MonoBehaviour
 	public Transform GirlTransform;
 
 	[HideInInspector]
-	public bool Moving = false;
+	public static bool Moving = false;
 
 	public static int Score = 0;
 	public delegate void ScoreChange();

@@ -60,7 +60,7 @@ public class SimpleController : MonoBehaviour
 
 	void MoveToCube(float direction)
 	{
-		if (Player.Moving)
+		if (PlayerControler.Moving)
 		{
 			return;
 		}
