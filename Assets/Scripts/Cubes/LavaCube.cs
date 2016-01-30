@@ -5,7 +5,6 @@ using Random = UnityEngine.Random;
 
 public class LavaCube : CubeAbstract
 {
-	Mountain Mountain = null;
 	float burnTime = 2;
 
 	public override bool CanMoveTo()
@@ -21,23 +20,21 @@ public class LavaCube : CubeAbstract
 	// Use this for initialization
 	protected override void Start()
 	{
-		Mountain = GameObject.FindGameObjectWithTag("Mountain").GetComponent<Mountain>();
+		base.Start();
     }
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
 		if ((Right == null || Right is LavaCube) && (Left == null || Left is LavaCube))
 		{
 			return;
 		}
-
-		burnTime -= Time.deltaTime;
+		burnTime -= Time.fixedDeltaTime;
 		if (burnTime > 0)
 		{
 			return;
 		}
-
 		if (Random.value > 0.5f && Right != null && !(Right is LavaCube))
 		{
 			Mountain.Replace(Instantiate(Mountain.Prefabs.Lava), Right);

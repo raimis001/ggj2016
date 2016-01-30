@@ -6,10 +6,12 @@ public abstract class CubeAbstract : MonoBehaviour
 	/// <summary>
 	/// Index for row
 	/// </summary>
+	[HideInInspector]
 	public int Row = 0;
 	/// <summary>
 	/// Index for place in row
 	/// </summary>
+	[HideInInspector]
 	public int Index = 0;
 
 	public CubeAbstract Left
@@ -32,7 +34,7 @@ public abstract class CubeAbstract : MonoBehaviour
 	}
 	public Renderer Renderer = null;
 
-	Mountain Mountain = null;
+	protected Mountain Mountain = null;
 
 	// Use this for initialization
 	void Awake()
