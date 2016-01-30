@@ -5,6 +5,7 @@ using System;
 public class SwampCube : CubeAbstract
 {
 	public float StuckTime = 02f;
+	public GameObject Bubbles;
 
 	public override bool CanMoveTo()
 	{
@@ -15,6 +16,10 @@ public class SwampCube : CubeAbstract
 	{
 		PlayerControler.Moving = true;
 		StuckTime = 2f;
+		if (Bubbles != null)
+		{
+			Bubbles.SetActive(true);
+		}
   }
 
 	// Use this for initialization
@@ -35,6 +40,10 @@ public class SwampCube : CubeAbstract
 		{
 			PlayerControler.Moving = false;
 			StuckTime = 0;
-    }
+			if (Bubbles != null)
+			{
+				Bubbles.SetActive(false);
+			}
+		}
 	}
 }
