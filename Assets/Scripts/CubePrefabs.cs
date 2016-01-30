@@ -42,6 +42,9 @@ public class CubePrefabs : ScriptableObject
 	[Tooltip("Visaugstākās prioritātes rašanās parametri")]
 	public KubaParametri RašanāsPrioritāte;
 
+	public GrassCube Grass;
+	public LavaCube Lava;
+
 	public GameObject GetPrefab()
 	{
 		return RašanāsPrioritāte.IegūtSagatavi();

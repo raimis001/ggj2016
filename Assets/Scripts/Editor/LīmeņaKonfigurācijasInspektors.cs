@@ -25,10 +25,6 @@ public class LīmeņaKonfigurācijasInspektors : Editor
 		KubaApraksts apraksts;
         for (int indeks = 0; indeks < Target.SagatavotieKubi.Count; indeks++)
 		{
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField("Vienības indeks");
-			EditorGUILayout.SelectableLabel(indeks.ToString());
-			EditorGUILayout.EndHorizontal();
 			apraksts = Target.SagatavotieKubi[indeks];
 			apraksts.RindasIndeks = EditorGUILayout.IntField("Rindas indeks", apraksts.RindasIndeks);
 			apraksts.IndeksRindā = EditorGUILayout.IntField("Indeks rindā", apraksts.IndeksRindā);

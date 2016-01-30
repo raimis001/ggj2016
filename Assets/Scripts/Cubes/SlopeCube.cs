@@ -17,10 +17,10 @@ public class SlopeCube : CubeAbstract
 	SlopeDirection _direction = SlopeDirection.RIGHT;
 
 	// Use this for initialization
-	void Start()
+	override protected void Start()
 	{
-		
-  }
+		base.Start();
+	}
 
 	// Update is called once per frame
 	void Update()

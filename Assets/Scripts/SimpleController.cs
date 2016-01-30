@@ -75,6 +75,16 @@ public class SimpleController : MonoBehaviour
 	CubeAbstract GetStartCube()
 	{
 		if (Mountain == null) { return null; }
+		if (Mountain.Konfigurācija.SagatavotieKubi.Count == 0)
+		{
+			return CalculateStartCube();
+		}
+		KubaApraksts apraksts = Mountain.Konfigurācija.SagatavotieKubi[0];
+        return Mountain.Content[apraksts.RindasIndeks][apraksts.IndeksRindā];
+	}
+
+	CubeAbstract CalculateStartCube()
+	{
 		List<CubeAbstract> startRow = Mountain.GetStartRow();
 		int count = startRow.Count;
 		//modify number if its even

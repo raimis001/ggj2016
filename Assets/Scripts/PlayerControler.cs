@@ -98,6 +98,7 @@ public class PlayerControler : MonoBehaviour
 
 	IEnumerator MoveChar( CubeAbstract cube)
 	{
+		Debug.Log("cenšos");
 		if (Moving)
 		{
 			yield break;
