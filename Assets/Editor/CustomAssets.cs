@@ -4,15 +4,21 @@ using UnityEditor;
 
 public class CustomAssets : Editor
 {
-    [MenuItem("Piederumi/Radīt/KubuTipi")]
+    [MenuItem("Piederumi/Radīt/Kubu sagataves")]
     public static void CreateCubeTypes()
     {
         KodējamaisObjekts.Radīt<CubePrefabs>();
     }
 
-	[MenuItem("Piederumi/Radīt/KubuParametri")]
+	[MenuItem("Piederumi/Radīt/Kubu parametrus")]
 	public static void CreateCubeParameters()
 	{
 		KodējamaisObjekts.Radīt<KubaParametri>();
+	}
+
+	[MenuItem("Piederumi/Radīt/Līmeņa konfigurāciju")]
+	public static void CreateLevelConfiguration()
+	{
+		KodējamaisObjekts.Radīt<LīmeņaKonfigurācija>();
 	}
 }

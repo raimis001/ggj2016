@@ -27,9 +27,13 @@ public static partial class KubaTipaFunkcijas
 
 public static partial class Paplašinājumi
 {
-	public static KubaTips Nejaušs(this List<KubaTips> tipi)
+	public static T Nejaušs<T>(this List<T> tipi)
 	{
-		return tipi[Random.Range(0, tipi.Count)];
+		if(tipi.Count > 0)
+		{
+			return tipi[Random.Range(0, tipi.Count)];
+		}
+		return default(T);
 	}
 }
 
@@ -37,15 +41,6 @@ public class CubePrefabs : ScriptableObject
 {
 	[Tooltip("Visaugstākās prioritātes rašanās parametri")]
 	public KubaParametri RašanāsPrioritāte;
-
-    public GameObject Zāle;
-    public GameObject Kaza;
-    public GameObject Koks;
-    public GameObject Akmens;
-	public GameObject Purvs;
-	public GameObject Nauda;
-    public GameObject Pirāts;
-    public GameObject Nogruvums;
 
 	public GameObject GetPrefab()
 	{

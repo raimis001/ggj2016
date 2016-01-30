@@ -6,7 +6,7 @@ public class LavaCube : CubeAbstract
 {
 	public override bool CanMoveTo()
 	{
-		return false;
+		return true;
 	}
 
 	public override void OnPlayerLanded()

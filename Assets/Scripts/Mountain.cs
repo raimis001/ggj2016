@@ -4,12 +4,7 @@ using System.Collections.Generic;
 
 public class Mountain : MonoBehaviour
 {
-	public int CubesInFirstRow = 3;
-	public int Rows = 10;
-	/// <summary>
-	/// Starts with 0
-	/// </summary>
-	public int StartRowIndex = 2;
+	public KalnaApraksts KalnaApraksts = null;
 	/// <summary>
 	/// All cube type prefab list
 	/// </summary>
@@ -36,7 +31,7 @@ public class Mountain : MonoBehaviour
 	// Use this for initialization
 	void Awake()
 	{
-		StartRowIndex = Mathf.Clamp(StartRowIndex, 0, Rows - 1);
+		KalnaApraksts.StartRowIndex = Mathf.Clamp(KalnaApraksts.StartRowIndex, 0, KalnaApraksts.Rows - 1);
 		Generate();
 	}
 
@@ -46,11 +41,11 @@ public class Mountain : MonoBehaviour
 		List<CubeAbstract> previousRow = null;
 		GameObject block;
 		CubeAbstract cube;
-		int cubesPerRow = CubesInFirstRow;
+		int cubesPerRow = KalnaApraksts.CubesInFirstRow;
 		//Start position for row
 		Vector3 startPosition = Vector3.zero;
 		Vector3 currentPosition = Vector3.zero;
-		for (int row = 0; row < Rows; row++)
+		for (int row = 0; row < KalnaApraksts.Rows; row++)
 		{
 			currentRow = new List<CubeAbstract>();
 			currentPosition = startPosition;
@@ -89,6 +84,6 @@ public class Mountain : MonoBehaviour
 
 	public List<CubeAbstract> GetStartRow()
 	{
-		return Content[StartRowIndex];
+		return Content[KalnaApraksts.StartRowIndex];
 	}
 }

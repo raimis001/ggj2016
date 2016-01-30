@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class KubaParametri : ScriptableObject
 {
 	public KubaTips Tips;
 	public GameObject Sagatave;
 	public float RašanāsIespēja;
-	[Tooltip("Neizdodos radīt atkrīt uz šiem parametriem")]
-	public KubaParametri Atkritējs;
+	[Tooltip("Neizdodos radīt atkrīt uz kādu no šiem parametriem ar vienādu iespēju")]
+	public List<KubaParametri> Atkritēji = new List<KubaParametri>();
 
 	public GameObject IegūtSagatavi()
 	{
@@ -18,11 +19,21 @@ public class KubaParametri : ScriptableObject
 		}
 		else
 		{
-			if(Atkritējs != null)
+			KubaParametri atkritējs = IegūtAkritēju();
+            if (atkritējs != null)
 			{
-				return Atkritējs.IegūtSagatavi();
+				return atkritējs.IegūtSagatavi();
 			}
 		}
 		return Sagatave;
+	}
+
+	KubaParametri IegūtAkritēju()
+	{
+		if(Atkritēji.Count != 0)
+		{
+			return Atkritēji.Nejaušs();
+		}
+		return null;
 	}
 }
