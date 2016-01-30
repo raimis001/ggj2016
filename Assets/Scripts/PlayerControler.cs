@@ -15,6 +15,8 @@ public class PlayerControler : MonoBehaviour
 	public static int Score = 0;
 	public delegate void ScoreChange();
 	public static event ScoreChange OnScoreChange;
+	public static event ScoreChange OnVictory;
+	public static event ScoreChange OnLose;
 
 	static PlayerControler _instance = null;
 	public static PlayerControler Instance
@@ -35,11 +37,8 @@ public class PlayerControler : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
 		StopGirl();
-  
-		
-		}
+	}
 
 	// Update is called once per frame
 	void Update()
@@ -66,8 +65,16 @@ public class PlayerControler : MonoBehaviour
 		{
 			_cube.OnPlayerLanded();
 		}
-		//_cube.
-	}
+		Mountain Mountain = GameObject.FindGameObjectWithTag("Mountain").GetComponent<Mountain>();
+		if (_cube.Row == Mountain.Konfigurācija.KalnaApraksts.Rows)
+		{
+			//TODO victory
+			if (OnVictory != null)
+			{
+				OnVictory();
+			}
+		}
+  }
 
 	public void MoveToDirection(CubeAbstract cube)
 	{
@@ -98,7 +105,6 @@ public class PlayerControler : MonoBehaviour
 
 	IEnumerator MoveChar( CubeAbstract cube)
 	{
-		Debug.Log("cenšos");
 		if (Moving)
 		{
 			yield break;
