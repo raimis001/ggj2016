@@ -57,7 +57,7 @@ public class GUI : MonoBehaviour
 
 	public void GotoMenu()
 	{
-		SceneManager.LoadScene("Game");
+		SceneManager.LoadScene("Menu");
 	}
 
 	public void GotoNext()
