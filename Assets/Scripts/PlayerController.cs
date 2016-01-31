@@ -78,7 +78,13 @@ public class PlayerController : MonoBehaviour
 		{
 			_cube.OnPlayerLanded();
 
-			//if (_cube.Row > Mountain.
+			if (_cube.Row >= Mountain.Instance.Konfigurācija.Rindas)
+			{
+				if (OnVictory != null)
+				{
+					OnVictory();
+				}
+			}
 		}
 
 	}
