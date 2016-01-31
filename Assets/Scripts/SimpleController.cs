@@ -58,7 +58,7 @@ public class SimpleController : MonoBehaviour
 		}
 	}
 
-	void MoveToCube(float direction)
+	public void MoveToCube(float direction)
 	{
 		if (PlayerController.Moving)
 		{

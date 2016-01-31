@@ -152,8 +152,7 @@ public class PlayerController : MonoBehaviour
 		Vector3 startPos = transform.position;
 		Vector3 endPos = new Vector3(cube.transform.position.x,startPos.y + 0.3f, cube.transform.position.z) - new Vector3(0f, 0, 0f);
 
-		
-    float dTime = 0.5f;
+		float dTime = 0.5f;
 		float tmp = 0;
 		while (tmp < dTime)
 		{

@@ -66,10 +66,10 @@ public class Mountain : MonoBehaviour
 				//creation
 				if (row < KonfigurācijasInstance.Rindas)
 				{
+					//apskata vai ir kāds kubs sagatavots šim lauciņam
 					KubaApraksts apraksts = GetCubeDescription(row, cubeIndex);
 					if (apraksts != null)
 					{
-
 						block = Prefabs.IegūtInstanci(apraksts.KubaTips);
 					}
 					else

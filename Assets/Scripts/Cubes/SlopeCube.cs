@@ -1,47 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using Random = UnityEngine.Random;
 
 public enum SlopeDirection
 {
-	LEFT,
-	RIGHT
+	Left,
+	Right
 }
 
 public class SlopeCube : CubeAbstract
 {
-
+	public bool RandomDirection = true;
 	public SlopeDirection Direction;
 	public Transform Slope;
-
-	SlopeDirection _direction = SlopeDirection.RIGHT;
+	SlopeDirection BaseDirection = SlopeDirection.Right;
 
 	// Use this for initialization
 	override protected void Start()
 	{
 		base.Start();
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		if (Direction != _direction)
+		if(RandomDirection)
 		{
-			_direction = Direction;
+			if(Random.value > 0.5f)
+			{
+				Direction = SlopeDirection.Left;
+            }
+			else
+			{
+				Direction = SlopeDirection.Right;
+			}
+		}
+		if (Direction != BaseDirection)
+		{
+			BaseDirection = Direction;
 			Rotate();
 		}
 	}
 
 	void Rotate()
 	{
-		float angle = Direction == SlopeDirection.RIGHT ? 0 : 270;
+		float angle = Direction == SlopeDirection.Right ? 0 : 270;
 		Slope.transform.localEulerAngles = new Vector3(0, angle, 0);
 	}
 
 	public override void OnPlayerLanded()
 	{
-		CubeAbstract cube = Direction == SlopeDirection.RIGHT ? this.Right : this.Left;
-		PlayerController.Instance.SlopeGirl(cube);
+		float direction = Direction == SlopeDirection.Right ? 1f : -1f;
+		Mountain.GetComponent<SimpleController>().MoveToCube(direction);
 	}
 
 	public override bool CanMoveTo()

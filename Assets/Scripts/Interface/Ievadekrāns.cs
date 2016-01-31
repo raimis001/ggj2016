@@ -6,9 +6,9 @@ public class Ievadekrāns : MonoBehaviour
 {
 	public void Play()
 	{
+		SpēlesKontrolieris.LīmeņaIndeks = 0;
 		PlayerController.Score = 0;
 		PlayerController.Goats = 0;
-
 		SceneManager.LoadScene("Game");
 	}
 
