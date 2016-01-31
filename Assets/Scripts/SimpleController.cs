@@ -55,6 +55,12 @@ public class SimpleController : MonoBehaviour
 		}
 	}
 
+	public void MoveGui(int direction)
+	{
+		Direction = direction;
+		MoveToCube(direction);
+	}
+
 	public void MoveToCube(float direction)
 	{
 		if (PlayerController.Moving)
