@@ -77,6 +77,28 @@ public class SimpleController : MonoBehaviour
 		}
 	}
 
+	public void DropToCube(float direction)
+	{
+		if (PlayerController.Moving)
+		{
+			return;
+		}
+		CubeAbstract cube = null;
+		if (ActiveCube.Row < Mountain.Konfigurācija.Rindas - 1)
+		{
+			cube = direction > 0 ? ActiveCube.Right : ActiveCube.Left;
+		}
+		if (ActiveCube.Row == Mountain.Konfigurācija.Rindas - 1)
+		{
+			cube = direction > 0 ? ActiveCube.RightToPlain : ActiveCube.LeftToPlain;
+		}
+		if (cube != null)
+		{
+			ActiveCube = cube;
+			Player.MoveToDirection(cube);
+		}
+	}
+
 	CubeAbstract GetStartCube()
 	{
 		if (Mountain == null) { return null; }

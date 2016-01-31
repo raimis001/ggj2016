@@ -6,11 +6,12 @@ public class StoneCube : CubeAbstract
 {
 	public override bool CanMoveTo()
 	{
-		return true;
+		return false;
 	}
 
 	public override void OnPlayerLanded()
 	{
+		PlayerController.Instance.BurnGirl();
 	}
 
 	// Use this for initialization

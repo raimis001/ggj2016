@@ -42,7 +42,7 @@ public class SlopeCube : CubeAbstract
 	public override void OnPlayerLanded()
 	{
 		float direction = Direction == SlopeDirection.Right ? 1f : -1f;
-		Mountain.GetComponent<SimpleController>().MoveToCube(direction);
+		Mountain.GetComponent<SimpleController>().DropToCube(direction);
 	}
 
 	public override bool CanMoveTo()
