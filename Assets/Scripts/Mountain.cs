@@ -4,7 +4,12 @@ using System.Collections.Generic;
 
 public class Mountain : MonoBehaviour
 {
+	public static Mountain Instance;
+
 	public LīmeņaKonfigurācija Konfigurācija = null;
+	/// <summary>
+	/// Iekšēji izmantot šo
+	/// </summary>
 	LīmeņaKonfigurācija KonfigurācijasInstance;
 	/// <summary>
 	/// All cube type prefab list
@@ -21,10 +26,23 @@ public class Mountain : MonoBehaviour
 	[HideInInspector]
 	public List<CubeAbstract> Plains = null;
 
-	// Use this for initialization
 	void Awake()
 	{
-		KonfigurācijasInstance = ScriptableObject.Instantiate(Konfigurācija);
+		Instance = this;
+	}
+
+	void Start()
+	{
+		SpēlesKontrolieris spēle = SpēlesKontrolieris.Instance;
+        if (spēle != null && spēle.Līmenis != null)
+		{
+			Konfigurācija = spēle.Līmenis;
+            KonfigurācijasInstance = Instantiate(spēle.Līmenis);
+		}
+		else
+		{
+			KonfigurācijasInstance = ScriptableObject.Instantiate(Konfigurācija);
+		}
 		KonfigurācijasInstance.SākumaRindasIndeks = Mathf.Clamp(Konfigurācija.SākumaRindasIndeks, 0, Konfigurācija.Rindas - 1);
 		Generate();
 	}
