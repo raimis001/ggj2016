@@ -8,6 +8,8 @@ public class GUI : MonoBehaviour
 	public Text ScoreText;
 	public Text GoatText;
 
+	public EasyTween Victory;
+
 	// Use this for initialization
 	void Start()
 	{
@@ -21,13 +23,15 @@ public class GUI : MonoBehaviour
 		}
 		PlayerController.OnScoreChange += OnScoreChange;
 		PlayerController.OnGoatChange += OnGoatChange;
+		PlayerController.OnVictory += OnVictory;
 	}
 
 	void OnDisable()
 	{
 		PlayerController.OnScoreChange -= OnScoreChange;
 		PlayerController.OnGoatChange -= OnGoatChange;
-  }
+		PlayerController.OnVictory -= OnVictory;
+	}
 
 	private void OnScoreChange()
 	{
@@ -44,6 +48,13 @@ public class GUI : MonoBehaviour
 			GoatText.text = PlayerController.Goats.ToString();
 		}
 	}
+
+
+	private void OnVictory()
+	{
+		Victory.OpenCloseObjectAnimation();
+	}
+
 	// Update is called once per frame
 	void Update()
 	{

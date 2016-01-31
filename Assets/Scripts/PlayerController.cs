@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public static event ScoreChange OnVictory;
+
 	CubeAbstract _cube;
 
 	void Awake()
