@@ -84,8 +84,8 @@ public class GUI : MonoBehaviour
 	private void OnVictory()
 	{
 		Victory.SetActive(true);
-		VictoryPanel.gameObject.SetActive(false);
-		LosePanel.gameObject.SetActive(true);
+		VictoryPanel.Open();
+		LosePanel.gameObject.SetActive(false);
 		 //OpenCloseObjectAnimation();
 	}
 	private void OnLose()
