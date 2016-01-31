@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class SimpleController : MonoBehaviour
 {
-
+	public static SimpleController Instance;
+	
 	public PlayerController Player;
 
 	Mountain Mountain;
@@ -15,27 +16,23 @@ public class SimpleController : MonoBehaviour
 	Rigidbody playerBody;
 	Animator playerAnimator;
 
-
-	CubeAbstract ActiveCube
+	public CubeAbstract ActiveCube
 	{
 		get
 		{
 			return _ActiveCube;
 		}
-		set
+		protected set
 		{
-			if (_ActiveCube != null && _ActiveCube != value)
-			{
-				_ActiveCube.Neizgaismot();
-			}
 			_ActiveCube = value;
-			if (_ActiveCube != null)
-			{
-				_ActiveCube.Izgaismot();
-			}
 		}
 	}
 	CubeAbstract _ActiveCube = null;
+
+	void Awake()
+	{
+		Instance = this;
+	}
 
 	// Use this for initialization
 	void Start()

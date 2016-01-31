@@ -12,9 +12,8 @@ public enum SlopeDirection
 public class SlopeCube : CubeAbstract
 {
 	public bool RandomDirection = true;
-	public SlopeDirection Direction;
+	public SlopeDirection Direction = SlopeDirection.Left;
 	public Transform Slope;
-	SlopeDirection BaseDirection = SlopeDirection.Right;
 
 	// Use this for initialization
 	override protected void Start()
@@ -31,16 +30,12 @@ public class SlopeCube : CubeAbstract
 				Direction = SlopeDirection.Right;
 			}
 		}
-		if (Direction != BaseDirection)
-		{
-			BaseDirection = Direction;
-			Rotate();
-		}
+		Rotate();
 	}
 
 	void Rotate()
 	{
-		float angle = Direction == SlopeDirection.Right ? 0 : 270;
+		float angle = Direction == SlopeDirection.Right ? 180 : -90;
 		Slope.transform.localEulerAngles = new Vector3(0, angle, 0);
 	}
 

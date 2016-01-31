@@ -88,6 +88,11 @@ public class LavaCube : CubeAbstract
 			{
 				if (target != null)
 				{
+					//Sadedzinam meiteni, ja tā ir uz aktīvā kuba
+					if(target == SimpleController.Instance.ActiveCube)
+					{
+						PlayerController.Instance.BurnGirl();
+					}
 					Mountain.Replace(Instantiate(Mountain.Prefabs.Lava), target);
 				}
 				LeftBurnTime = Random.Range(BurnTimeMin, BurnTimeMax);
