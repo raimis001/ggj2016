@@ -20,7 +20,7 @@ public class GrassCube : CubeAbstract
 	{
 		base.Start();
 		GrassObject.GetComponent<Renderer>().sharedMaterial = Grass[Random.Range(0, Grass.Length)];
-		if (CanHaveItem)
+		if (CanHaveItem && Items.Length > 0)
 		{
 			if (Random.value < 0.1f)
 			{

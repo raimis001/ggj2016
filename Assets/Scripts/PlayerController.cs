@@ -164,4 +164,8 @@ public class PlayerController : MonoBehaviour
 			yield return null;
 		}
   }
+	public void PlaySound(int sound)
+	{
+		Sounds[sound].Play();
+	}
 }

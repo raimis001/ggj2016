@@ -43,6 +43,7 @@ public class SwampCube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
+		PlayerController.Instance.PlaySound(1);
 		StuckIn();
 		Splash();
 

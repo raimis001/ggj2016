@@ -6,6 +6,7 @@ public class StoneCube : CubeAbstract
 {
 	public override bool CanMoveTo()
 	{
+		PlayerController.Instance.PlaySound(2);
 		return false;
 	}
 
