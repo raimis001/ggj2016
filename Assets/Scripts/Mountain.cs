@@ -113,6 +113,8 @@ public class Mountain : MonoBehaviour
 		Content[target.Row][target.Index] = changer;
 		changer.transform.position = target.transform.position;
 		changer.transform.parent = target.transform.parent;
+		changer.Row = target.Row;
+		changer.Index = target.Index;
 		GameObject.Destroy(target.gameObject);
 	}
 }
