@@ -16,7 +16,7 @@ Shader "Vertex color/unlit"
 		SubShader {
 			Pass {
 				SetTexture [_MainTex] {
-					Combine texture * primary DOUBLE
+					Combine texture * primary
 				}
 			}
 		}
