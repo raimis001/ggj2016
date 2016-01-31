@@ -11,7 +11,7 @@ public class GUI : MonoBehaviour
 
 
 
-	public EasyTween Victory;
+	public GameObject Victory;
 	public guiVictory VictoryPanel;
 	public guiLose LosePanel;
 
@@ -30,13 +30,16 @@ public class GUI : MonoBehaviour
 		PlayerController.OnGoatChange += OnGoatChange;
 		PlayerController.OnVictory += OnVictory;
 		PlayerController.OnLose += OnLose;
-	}
+
+		Victory.SetActive(false);
+  }
 
 	void OnDisable()
 	{
 		PlayerController.OnScoreChange -= OnScoreChange;
 		PlayerController.OnGoatChange -= OnGoatChange;
 		PlayerController.OnLose -= OnLose;
+		PlayerController.OnVictory -= OnVictory;
 	}
 
 	private void OnScoreChange()
@@ -80,16 +83,19 @@ public class GUI : MonoBehaviour
 	}
 	private void OnVictory()
 	{
-		LosePanel.gameObject.SetActive(false);
-    VictoryPanel.Open();
-		Victory.OpenCloseObjectAnimation();
+		Victory.SetActive(true);
+		VictoryPanel.gameObject.SetActive(false);
+		LosePanel.gameObject.SetActive(true);
+		 //OpenCloseObjectAnimation();
 	}
 	private void OnLose()
 	{
+		Victory.SetActive(true);
 		VictoryPanel.gameObject.SetActive(false);
 		LosePanel.Open();
-		Victory.OpenCloseObjectAnimation();
-	}
+		//Victory.OpenCloseObjectAnimation();
+		//Victory.SetActive(true);
+  }
 
 	// Update is called once per frame
 	void Update()

@@ -3,6 +3,8 @@ using System.Collections;
 
 public abstract class CubeAbstract : MonoBehaviour
 {
+	public AudioSource Sound;
+
 	/// <summary>
 	/// Index for row
 	/// </summary>

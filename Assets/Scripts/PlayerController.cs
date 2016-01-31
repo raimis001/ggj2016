@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 	public Animation GirlAnimation;
 	public Transform GirlTransform;
 
+	public AudioSource[] Sounds;
+
 	[HideInInspector]
 	public static bool Moving = false;
 
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
 		{
 			yield break;
 		}
+		Sounds[0].Play();
 		Moving = true;
 		GirlAnimation.Play("Jump");
 		GirlTransform.LookAt(new Vector3(cube.transform.position.x, GirlTransform.position.y, cube.transform.position.z));
