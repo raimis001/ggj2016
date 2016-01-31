@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Item : MonoBehaviour
 {
+	public KubaTips ItemType;
 	public int Value = 5;
 
 	public GameObject TakeEffectPrefab;
@@ -10,7 +12,15 @@ public class Item : MonoBehaviour
 
 	public virtual void OnItemTake()
 	{
-		PlayerController.AddScore(Value);
+		if (ItemType == KubaTips.Kaza)
+		{
+			PlayerController.AddGoat(Value);
+		}
+		else
+		{
+			PlayerController.AddScore(Value);
+		}		
+
 		if(TakeEffectPrefab != null)
 		{
             Transform effectTransform = Instantiate(TakeEffectPrefab).transform;

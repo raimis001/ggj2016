@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
 	public delegate void ScoreChange();
 	public static event ScoreChange OnScoreChange;
 
+	public static int Goats = 0;
+	public static event ScoreChange OnGoatChange;
+
 	static PlayerController _instance = null;
 	public static PlayerController Instance
 	{
@@ -44,6 +47,15 @@ public class PlayerController : MonoBehaviour
 	{
 
 	}
+	public static void AddGoat(int score)
+	{
+		Goats += score;
+		if (Goats < 0) Goats = 0;
+		if (OnGoatChange!= null)
+		{
+			OnGoatChange();
+		}
+	}
 
 	public static void AddScore(int score)
 	{
@@ -63,6 +75,8 @@ public class PlayerController : MonoBehaviour
 		if (_cube != null)
 		{
 			_cube.OnPlayerLanded();
+
+			//if (_cube.Row > Mountain.
 		}
 
 	}
