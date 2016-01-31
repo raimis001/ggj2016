@@ -7,7 +7,7 @@ public class CustomAssets : Editor
     [MenuItem("Piederumi/Radīt/Kubu sagataves")]
     public static void CreateCubeTypes()
     {
-        KodējamaisObjekts.Radīt<CubePrefabs>();
+        KodējamaisObjekts.Radīt<KubuSagataves>();
     }
 
 	[MenuItem("Piederumi/Radīt/Kubu parametrus")]
@@ -20,5 +20,11 @@ public class CustomAssets : Editor
 	public static void CreateLevelConfiguration()
 	{
 		KodējamaisObjekts.Radīt<LīmeņaKonfigurācija>();
+	}
+
+	[MenuItem("Piederumi/Radīt/Līmeņu sarakstu")]
+	public static void RadītLīmeņuSarakstu()
+	{
+		KodējamaisObjekts.Radīt<Līmeņi>();
 	}
 }

@@ -5,7 +5,7 @@ using System.Collections;
 public class Lava : MonoBehaviour
 {
     Mountain Mountain = null;
-	CubePrefabs CubePrefabs = null;
+	KubuSagataves CubePrefabs = null;
     
 	// Use this for initialization
 	protected virtual void Start()
@@ -24,7 +24,8 @@ public class Lava : MonoBehaviour
     /// </summary>
     void ConsumeFirstRow()
     {
-        foreach(CubeAbstract cube in Mountain.FirstRow)
+		if (Mountain.Content.Count == 0) { return; }
+        foreach(CubeAbstract cube in Mountain.Content[0])
         {
             Consume(cube);
         }

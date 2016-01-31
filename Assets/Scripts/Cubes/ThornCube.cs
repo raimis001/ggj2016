@@ -5,6 +5,11 @@ using System;
 public class ThornCube : CubeAbstract
 {
 	public int Value = -10;
+	public GameObject SadnessEffectPrefab;
+	public Vector3 SadnessEffectOffset;
+	public GameObject DustEffectPrefab;
+	public Vector3 DustEffectOffset;
+
 	public override bool CanMoveTo()
 	{
 		return true;
@@ -12,8 +17,9 @@ public class ThornCube : CubeAbstract
 
 	public override void OnPlayerLanded()
 	{
-		PlayerControler.AddScore(Value);
-		
+		SadnessEffect();
+		PlayerController.AddScore(Value);
+		DustEffect();
 	}
 
 	// Use this for initialization
@@ -26,5 +32,19 @@ public class ThornCube : CubeAbstract
 	void Update()
 	{
 
+	}
+
+	void SadnessEffect()
+	{
+		if(SadnessEffectPrefab == null) { return; }
+		Transform effectTransform = Instantiate(SadnessEffectPrefab).transform;
+		effectTransform.position = transform.position + SadnessEffectOffset;
+	}
+
+	void DustEffect()
+	{
+		if (DustEffectPrefab == null) { return; }
+		Transform effectTransform = Instantiate(DustEffectPrefab).transform;
+		effectTransform.position = transform.position + DustEffectOffset;
 	}
 }

@@ -17,7 +17,7 @@ public abstract class CubeAbstract : MonoBehaviour
 		get
 		{
 			if (Mountain == null) { return null; }
-			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows - 1) { return null; }
+			if (Row >= Mountain.Konfigurācija.Rindas - 1) { return null; }
 			return Mountain.Content[Row + 1][Index];
 		}
 	}
@@ -26,13 +26,37 @@ public abstract class CubeAbstract : MonoBehaviour
 		get
 		{
 			if (Mountain == null) { return null; }
-			if (Row >= Mountain.Konfigurācija.KalnaApraksts.Rows - 1) { return null; }
+			if (Row >= Mountain.Konfigurācija.Rindas - 1) { return null; }
 			return Mountain.Content[Row + 1][Index + 1];
 		}
 	}
+	/// <summary>
+	/// From last mountain row to plain
+	/// </summary>
+	public CubeAbstract LeftToPlain
+	{
+		get
+		{
+			if (!IsInLastRow()) { return null; }
+			int count = Mountain.Plains.Count;
+            return Mountain.Plains[Index];
+		}
+	}
+	/// <summary>
+	/// From last mountain row to plain
+	/// </summary>
+	public CubeAbstract RightToPlain
+	{
+		get
+		{
+			if (!IsInLastRow()) { return null; }
+			return Mountain.Plains[Index + 1];
+		}
+	}
+
 	public Renderer Renderer = null;
 
-	Mountain Mountain = null;
+	protected Mountain Mountain = null;
 
 	// Use this for initialization
 	void Awake()
@@ -76,8 +100,21 @@ public abstract class CubeAbstract : MonoBehaviour
 		Renderer.material.color = Color.white;
 	}
 
-	public virtual void BurnCube()
+	/// <summary>
+	/// Death animation
+	/// </summary>
+	public virtual void Burn()
 	{
 
+	}
+
+	/// <summary>
+	/// Cube in last mountain row
+	/// </summary>
+	bool IsInLastRow()
+	{
+		if (Mountain == null) { return false; }
+		if (Row != Mountain.Konfigurācija.Rindas - 1) { return false; }
+		return true;
 	}
 }

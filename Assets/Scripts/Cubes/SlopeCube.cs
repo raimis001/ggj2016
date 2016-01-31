@@ -41,7 +41,7 @@ public class SlopeCube : CubeAbstract
 	public override void OnPlayerLanded()
 	{
 		CubeAbstract cube = Direction == SlopeDirection.RIGHT ? this.Right : this.Left;
-    PlayerControler.Instance.SlopeGirl(cube);
+		PlayerController.Instance.SlopeGirl(cube);
 	}
 
 	public override bool CanMoveTo()

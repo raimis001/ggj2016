@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 7457f81d8b1ae67448e89357b3bf9254
+timeCreated: 1454232029
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: pogas_0
+    21300002: pogas_1
+    21300004: pogas_2
+    21300006: pogas_3
+    21300008: pogas_4
+    21300010: pogas_5
+    21300012: pogas_6
+    21300014: pogas_7
+    21300016: pogas_8
+    21300018: pogas_9
+    21300020: pogas_10
+    21300022: pogas_11
+    21300024: pogas_12
+    21300026: pogas_13
+    21300028: pogas_14
+    21300030: pogas_15
+    21300032: pogas_16
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: pogas_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 295
+        width: 495
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 247.5, y: 92}
+        - {x: 245.5, y: 97}
+        - {x: 238.5, y: 104}
+        - {x: 237.5, y: 104}
+        - {x: 234.5, y: 107}
+        - {x: -234.5, y: 107}
+        - {x: -237.5, y: 106}
+        - {x: -245.5, y: 98}
+        - {x: -247.5, y: 93}
+        - {x: -247.5, y: -92}
+        - {x: -246.5, y: -95}
+        - {x: -244.5, y: -96}
+        - {x: -244.5, y: -97}
+        - {x: -238.5, y: -104}
+        - {x: -231.5, y: -107}
+        - {x: 230.5, y: -107}
+        - {x: 237.5, y: -104}
+        - {x: 244.5, y: -97}
+        - {x: 247.5, y: -90}
+    - name: pogas_1
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 295
+        width: 494
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 245, y: -96}
+        - {x: 247, y: -94}
+        - {x: 247, y: 95}
+        - {x: 246, y: 98}
+        - {x: 238, y: 106}
+        - {x: 235, y: 107}
+        - {x: -234, y: 107}
+        - {x: -236, y: 105}
+        - {x: -237, y: 105}
+        - {x: -243, y: 99}
+        - {x: -243, y: 98}
+        - {x: -247, y: 93}
+        - {x: -247, y: -91}
+        - {x: -245, y: -96}
+        - {x: -236, y: -105}
+        - {x: -231, y: -107}
+        - {x: 232, y: -107}
+        - {x: 237, y: -105}
+        - {x: 245, y: -97}
+    - name: pogas_15
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 495
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 245.5, y: -96.5}
+        - {x: 247.5, y: -91.5}
+        - {x: 247.5, y: 90.5}
+        - {x: 244.5, y: 97.5}
+        - {x: 237.5, y: 104.5}
+        - {x: 230.5, y: 107.5}
+        - {x: -231.5, y: 107.5}
+        - {x: -236.5, y: 105.5}
+        - {x: -237.5, y: 103.5}
+        - {x: -238.5, y: 103.5}
+        - {x: -244.5, y: 97.5}
+        - {x: -244.5, y: 96.5}
+        - {x: -246.5, y: 95.5}
+        - {x: -247.5, y: 92.5}
+        - {x: -247.5, y: -93.5}
+        - {x: -245.5, y: -95.5}
+        - {x: -245.5, y: -96.5}
+        - {x: -237.5, y: -105.5}
+        - {x: -232.5, y: -107.5}
+        - {x: 232.5, y: -107.5}
+        - {x: 235.5, y: -106.5}
+        - {x: 236.5, y: -104.5}
+        - {x: 237.5, y: -104.5}
+    - name: pogas_16
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 3
+        width: 494
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 247, y: 95.5}
+        - {x: 244, y: 97.5}
+        - {x: 244, y: 98.5}
+        - {x: 240, y: 102.5}
+        - {x: 239, y: 102.5}
+        - {x: 237, y: 105.5}
+        - {x: 232, y: 107.5}
+        - {x: -230, y: 107.5}
+        - {x: -237, y: 104.5}
+        - {x: -245, y: 96.5}
+        - {x: -247, y: 91.5}
+        - {x: -247, y: -91.5}
+        - {x: -244, y: -98.5}
+        - {x: -237, y: -104.5}
+        - {x: -235, y: -106.5}
+        - {x: -232, y: -107.5}
+        - {x: 233, y: -107.5}
+        - {x: 238, y: -105.5}
+        - {x: 246, y: -97.5}
+        - {x: 247, y: -94.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

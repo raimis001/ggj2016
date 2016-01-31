@@ -5,6 +5,10 @@ using Random = UnityEngine.Random;
 
 public class GrassCube : CubeAbstract
 {
+	/// <summary>
+	/// Can it randomize for item
+	/// </summary>
+	public bool CanHaveItem = true;
 	public Item Item;
 
 	public GameObject[] Items;
@@ -16,9 +20,12 @@ public class GrassCube : CubeAbstract
 	{
 		base.Start();
 		GrassObject.GetComponent<Renderer>().sharedMaterial = Grass[UnityEngine.Random.Range(0, Grass.Length)];
-		if (Random.value < 0.1f)
+		if (CanHaveItem)
 		{
-			AddItem(Items[Random.Range(0, Items.Length)]);
+			if (Random.value < 0.1f)
+			{
+				AddItem(Items[Random.Range(0, Items.Length)]);
+			}
 		}
 	}
 
@@ -26,7 +33,7 @@ public class GrassCube : CubeAbstract
 	{
 		if (Item)
 		{
-			Destroy(Item.gameObject);
+			return;
 		}
 
 		GameObject obj = Instantiate(item);
@@ -48,7 +55,7 @@ public class GrassCube : CubeAbstract
 			Item.OnItemTake();
 			Destroy(Item.gameObject);
 			Item = null;
-    }
+		}
 	}
 
 

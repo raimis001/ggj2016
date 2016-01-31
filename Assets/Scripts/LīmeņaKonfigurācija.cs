@@ -4,17 +4,6 @@ using System.Collections.Generic;
 using System;
 
 [Serializable]
-public class KalnaApraksts
-{
-	public int CubesInFirstRow = 3;
-	public int Rows = 10;
-	/// <summary>
-	/// Starts with 0
-	/// </summary>
-	public int StartRowIndex = 2;
-}
-
-[Serializable]
 public class KubaApraksts
 {
 	public int RindasIndeks = 0;
@@ -24,6 +13,12 @@ public class KubaApraksts
 
 public class LīmeņaKonfigurācija : ScriptableObject
 {
-	public KalnaApraksts KalnaApraksts = new KalnaApraksts();
+	public int KubiPirmajāRindā = 3;
+	public int Rindas = 10;
+	/// <summary>
+	/// Tiks izmantots, ja nebūs nodefinēta taka
+	/// </summary>
+	public int SākumaRindasIndeks = 2;
+
 	public List<KubaApraksts> SagatavotieKubi = new List<KubaApraksts>();
 }

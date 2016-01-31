@@ -10,77 +10,99 @@ public class Mountain : MonoBehaviour
 	/// All cube type prefab list
 	/// </summary>
 	[Tooltip("All cube type prefab list")]
-	public CubePrefabs Prefabs;
-
-	public List<CubeAbstract> FirstRow
-	{
-		get
-		{
-			return _FirstRow;
-		}
-		private set
-		{
-			_FirstRow = value;
-		}
-	}
-	List<CubeAbstract> _FirstRow = new List<CubeAbstract>();
+	public KubuSagataves Prefabs;
 	/// <summary>
 	/// All mountain rows with cubes
 	/// </summary>
 	public List<List<CubeAbstract>> Content = new List<List<CubeAbstract>>();
-
-	KalnaApraksts KalnaApraksts = null;
+	/// <summary>
+	/// Grass plains under mountain
+	/// </summary>
+	[HideInInspector]
+	public List<CubeAbstract> Plains = null;
 
 	// Use this for initialization
 	void Awake()
 	{
 		KonfigurācijasInstance = ScriptableObject.Instantiate(Konfigurācija);
-        KalnaApraksts = KonfigurācijasInstance.KalnaApraksts;
-		KalnaApraksts.StartRowIndex = Mathf.Clamp(KalnaApraksts.StartRowIndex, 0, KalnaApraksts.Rows - 1);
+		KonfigurācijasInstance.SākumaRindasIndeks = Mathf.Clamp(Konfigurācija.SākumaRindasIndeks, 0, Konfigurācija.Rindas - 1);
 		Generate();
 	}
 
 	public void Generate()
 	{
 		List<CubeAbstract> currentRow = null;
-		List<CubeAbstract> previousRow = null;
-		GameObject block;
+		GameObject block = null;
 		CubeAbstract cube;
-		int cubesPerRow = KalnaApraksts.CubesInFirstRow;
+		int cubesPerRow = KonfigurācijasInstance.KubiPirmajāRindā;
+		bool plainsAssigned = false;
 		//Start position for row
 		Vector3 startPosition = Vector3.zero;
 		Vector3 currentPosition = Vector3.zero;
-		for (int row = 0; row < KalnaApraksts.Rows; row++)
+		for (int row = 0; row < KonfigurācijasInstance.Rindas + 3; row++)
 		{
 			currentRow = new List<CubeAbstract>();
 			currentPosition = startPosition;
 			for (int cubeIndex = 0; cubeIndex < cubesPerRow; cubeIndex++)
 			{
 				//creation
-				block = Prefabs.GetInstance();
+				if (row < KonfigurācijasInstance.Rindas)
+				{
+					KubaApraksts apraksts = GetCubeDescription(row, cubeIndex);
+					if (apraksts != null)
+					{
+
+						block = Prefabs.IegūtInstanci(apraksts.KubaTips);
+					}
+					else
+					{
+						block = Prefabs.IegūtInstanci();
+					}
+				}
+				else
+				{
+					block = Instantiate(Prefabs.Zāle.gameObject);
+				}
 				block.transform.position = currentPosition;
 				block.transform.parent = transform;
 				currentPosition += new Vector3(-1f, 0f, 1f);
 				//assigning self as move target
 				cube = block.GetComponent<CubeAbstract>();
+				//Not letting plain grass get items
+				if (row >= KonfigurācijasInstance.Rindas)
+				{
+					((GrassCube)cube).CanHaveItem = false;
+				}
 				cube.Row = row;
 				cube.Index = cubeIndex;
-				if (row == 0)
-				{
-					FirstRow.Add(cube);
-				}
 				currentRow.Add(cube);
 			}
-			Content.Add(currentRow);
-			previousRow = currentRow;
+			if (row < KonfigurācijasInstance.Rindas)
+			{
+				Content.Add(currentRow);
+				startPosition += new Vector3(1f, -1f, 0f);
+			}
+			else
+			{
+				startPosition += new Vector3(1f, 0f, 0f);
+				if (plainsAssigned == false)
+				{
+					Plains = currentRow;
+					plainsAssigned = true;
+				}
+			}
 			cubesPerRow++;
-			startPosition += new Vector3(1f, -1f, 0f);
 		}
+	}
+
+	KubaApraksts GetCubeDescription(int row, int index)
+	{
+		return KonfigurācijasInstance.SagatavotieKubi.Find(x => x.RindasIndeks == row && x.IndeksRindā == index);
 	}
 
 	public List<CubeAbstract> GetStartRow()
 	{
-		return Content[KalnaApraksts.StartRowIndex];
+		return Content[KonfigurācijasInstance.SākumaRindasIndeks];
 	}
 
 	/// <summary>

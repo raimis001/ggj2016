@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GUI : MonoBehaviour
 {
-
 	public Text ScoreText;
 
 	// Use this for initialization
@@ -15,14 +14,14 @@ public class GUI : MonoBehaviour
 		{
 			ScoreText.text = "0";
 		}
-		PlayerControler.OnScoreChange += OnScoreChange;
+		PlayerController.OnScoreChange += OnScoreChange;
 	}
 
 	private void OnScoreChange()
 	{
 		if (ScoreText)
 		{
-			ScoreText.text = PlayerControler.Score.ToString();
+			ScoreText.text = PlayerController.Score.ToString();
 		}
 	}
 

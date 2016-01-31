@@ -18,9 +18,9 @@ public class LīmeņaKonfigurācijasInspektors : Editor
 	{
 		Noņemamais = null;
         EditorGUILayout.LabelField("Kalna informācija");
-		Target.KalnaApraksts.CubesInFirstRow = EditorGUILayout.IntField("Kubi pirmajā rindā", Target.KalnaApraksts.CubesInFirstRow);
-		Target.KalnaApraksts.Rows = EditorGUILayout.IntField("Rindas kalnā", Target.KalnaApraksts.Rows);
-		Target.KalnaApraksts.StartRowIndex = EditorGUILayout.IntField("Starta rinda", Target.KalnaApraksts.StartRowIndex);
+		Target.KubiPirmajāRindā = EditorGUILayout.IntField("Kubi pirmajā rindā", Target.KubiPirmajāRindā);
+		Target.Rindas = EditorGUILayout.IntField("Rindas kalnā", Target.Rindas);
+		Target.SākumaRindasIndeks = EditorGUILayout.IntField("Starta rinda", Target.SākumaRindasIndeks);
 		EditorGUILayout.LabelField("Laukuma informācija");
 		KubaApraksts apraksts;
         for (int indeks = 0; indeks < Target.SagatavotieKubi.Count; indeks++)
