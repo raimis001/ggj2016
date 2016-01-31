@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	public static event ScoreChange OnVictory;
+	public static event ScoreChange OnLose;
 
 	CubeAbstract _cube;
 
@@ -80,9 +81,19 @@ public class PlayerController : MonoBehaviour
 
 			if (_cube.Row >= Mountain.Instance.Konfigurācija.Rindas)
 			{
-				if (OnVictory != null)
+				if (PlayerController.Goats > 0)
 				{
-					OnVictory();
+					if (OnVictory != null)
+					{
+						OnVictory();
+					}
+				}
+				else
+				{
+					if (OnLose != null)
+					{
+						OnLose();
+					}
 				}
 			}
 		}
@@ -108,7 +119,10 @@ public class PlayerController : MonoBehaviour
 
 	public void BurnGirl()
 	{
-
+		if (OnLose != null)
+		{
+			OnLose();
+		}
 	}
 
 	public void SlopeGirl(CubeAbstract cube)
