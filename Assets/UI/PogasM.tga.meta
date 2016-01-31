@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 7457f81d8b1ae67448e89357b3bf9254
-timeCreated: 1454232029
+timeCreated: 1454233350
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: pogas_0
-    21300002: pogas_1
+    21300000: pogas_nospiesta
+    21300002: pogas_parasta
     21300004: pogas_2
     21300006: pogas_3
     21300008: pogas_4
@@ -19,8 +19,8 @@ TextureImporter:
     21300024: pogas_12
     21300026: pogas_13
     21300028: pogas_14
-    21300030: pogas_15
-    21300032: pogas_16
+    21300030: pogas1_nospiest
+    21300032: pogas1_parasta
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -67,7 +67,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: pogas_0
+    - name: pogas_nospiesta
       rect:
         serializedVersion: 2
         x: 3
@@ -76,7 +76,7 @@ TextureImporter:
         height: 214
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 224, y: 80, z: 229, w: 78}
       outline:
       - - {x: 247.5, y: 92}
         - {x: 245.5, y: 97}
@@ -97,7 +97,7 @@ TextureImporter:
         - {x: 237.5, y: -104}
         - {x: 244.5, y: -97}
         - {x: 247.5, y: -90}
-    - name: pogas_1
+    - name: pogas_parasta
       rect:
         serializedVersion: 2
         x: 527
@@ -106,7 +106,7 @@ TextureImporter:
         height: 214
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 211, y: 80, z: 216, w: 77}
       outline:
       - - {x: 245, y: -96}
         - {x: 247, y: -94}
@@ -127,7 +127,7 @@ TextureImporter:
         - {x: 232, y: -107}
         - {x: 237, y: -105}
         - {x: 245, y: -97}
-    - name: pogas_15
+    - name: pogas1_nospiest
       rect:
         serializedVersion: 2
         x: 3
@@ -161,7 +161,7 @@ TextureImporter:
         - {x: 235.5, y: -106.5}
         - {x: 236.5, y: -104.5}
         - {x: 237.5, y: -104.5}
-    - name: pogas_16
+    - name: pogas1_parasta
       rect:
         serializedVersion: 2
         x: 527

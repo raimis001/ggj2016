@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GUI : MonoBehaviour
 {
 	public Text ScoreText;
+	public Text GoatText;
 
 	// Use this for initialization
 	void Start()
