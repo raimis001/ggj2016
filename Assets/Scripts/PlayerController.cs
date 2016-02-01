@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
 	public Animation GirlAnimation;
 	public Transform GirlTransform;
 
-	public AudioSource[] Sounds;
 	public GameObject SoulEffectPrefab;
 	public GameObject WinEffectPrefab;
+
+	public AudioClip[] Sounds;
+
 	[HideInInspector]
 	public static bool Moving = false;
 	public bool Live = true;
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
 	public static event ScoreChange OnLose;
 
 	CubeAbstract _cube;
+	AudioSource Audio;
 
 	void Awake()
 	{
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		Audio = GetComponent<AudioSource>();
 		StopGirl();
 	}
 
@@ -155,7 +159,10 @@ public class PlayerController : MonoBehaviour
 		{
 			yield break;
 		}
-		Sounds[0].Play();
+		if(cube is GrassCube && ((GrassCube)cube).Item != null)
+		{
+			PlaySound(0);
+		}
 		Moving = true;
 		GirlAnimation.Play("Jump");
 		GirlTransform.LookAt(new Vector3(cube.transform.position.x, GirlTransform.position.y, cube.transform.position.z));
@@ -183,6 +190,7 @@ public class PlayerController : MonoBehaviour
   }
 	public void PlaySound(int sound)
 	{
-		Sounds[sound].Play();
+		Audio.clip = Sounds[sound];
+		Audio.Play();
 	}
 }

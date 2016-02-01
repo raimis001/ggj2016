@@ -79,12 +79,15 @@ public class GUI : MonoBehaviour
 		PlayerController.Goats = 0;
 		SceneManager.LoadScene("Game");
 	}
+
 	private void OnVictory()
 	{
 		Victory.SetActive(true);
 		VictoryPanel.Open();
 		LosePanel.gameObject.SetActive(false);
-		Victory.OpenCloseObjectAnimation();	}
+		//Victory.OpenCloseObjectAnimation();
+	}
+
 	private void OnLose()
 	{
 		Victory.SetActive(true);
