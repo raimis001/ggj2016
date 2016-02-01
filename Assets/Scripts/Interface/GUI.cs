@@ -9,8 +9,6 @@ public class GUI : MonoBehaviour
 	public Text ScoreText;
 	public Text GoatText;
 
-
-
 	public GameObject Victory;
 	public guiVictory VictoryPanel;
 	public guiLose LosePanel;
@@ -86,8 +84,7 @@ public class GUI : MonoBehaviour
 		Victory.SetActive(true);
 		VictoryPanel.Open();
 		LosePanel.gameObject.SetActive(false);
-		 //OpenCloseObjectAnimation();
-	}
+		Victory.OpenCloseObjectAnimation();	}
 	private void OnLose()
 	{
 		Victory.SetActive(true);
@@ -96,10 +93,4 @@ public class GUI : MonoBehaviour
 		//Victory.OpenCloseObjectAnimation();
 		//Victory.SetActive(true);
   }
-
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
 }

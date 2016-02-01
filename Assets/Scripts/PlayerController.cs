@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
 	public Transform GirlTransform;
 
 	public AudioSource[] Sounds;
-
+	public GameObject SoulEffectPrefab;
+	public GameObject WinEffectPrefab;
 	[HideInInspector]
 	public static bool Moving = false;
+	public bool Live = true;
 
 	public static int Score = 0;
 	public delegate void ScoreChange();
@@ -41,17 +43,9 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-
 		StopGirl();
-  
-		
-		}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
+
 	public static void AddGoat(int score)
 	{
 		Goats += score;
@@ -83,20 +77,7 @@ public class PlayerController : MonoBehaviour
 
 			if (_cube.Row >= Mountain.Instance.Konfigurācija.Rindas)
 			{
-				if (PlayerController.Goats > 0)
-				{
-					if (OnVictory != null)
-					{
-						OnVictory();
-					}
-				}
-				else
-				{
-					if (OnLose != null)
-					{
-						OnLose();
-					}
-				}
+				StartCoroutine(DecideWinConditionsAfterDelay());
 			}
 		}
 
@@ -104,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
 	public void MoveToDirection(CubeAbstract cube)
 	{
+		if (!Live) { return; }
 		_cube = cube;
 		StartCoroutine(MoveChar(cube));
 	}
@@ -117,20 +99,55 @@ public class PlayerController : MonoBehaviour
 		GirlAnimation["EyeBlink"].speed = 0.5f;
 
 		GirlTransform.localEulerAngles = new Vector3(0, 225, 0);
-  }
+	}
 
 	public void BurnGirl()
 	{
+		Live = false;
+		Transform effectTransform = Instantiate(SoulEffectPrefab).transform;
+		effectTransform.position = transform.position;
+		StartCoroutine(LooseAfterDelay());
+	}
+
+	IEnumerator DecideWinConditionsAfterDelay()
+	{
+		bool victory = (PlayerController.Goats > 0);
+		GameObject effectPrefab = null;
+		if(victory)
+		{
+			effectPrefab = WinEffectPrefab;
+        }
+		else
+		{
+			effectPrefab = SoulEffectPrefab;
+		}
+        Transform effectTransform = Instantiate(effectPrefab).transform;
+		effectTransform.position = transform.position;
+		yield return new WaitForSeconds(1f);
+		if (victory)
+		{
+			if (OnVictory != null)
+			{
+				OnVictory();
+			}
+		}
+		else
+		{
+			if (OnLose != null)
+			{
+				OnLose();
+			}
+		}
+	}
+
+	IEnumerator LooseAfterDelay()
+	{
+		yield return new WaitForSeconds(1f);
 		if (OnLose != null)
 		{
 			OnLose();
 		}
 	}
-
-	public void SlopeGirl(CubeAbstract cube)
-	{
-		MoveToDirection(cube);
-  }
 
 	IEnumerator MoveChar( CubeAbstract cube)
 	{
